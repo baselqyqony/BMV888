@@ -8,7 +8,7 @@ namespace Bee_Project.Models
 {
     public class serviceProvider
     {
-        [Required]
+        
         public int ID { get; set; }
     }
 }
