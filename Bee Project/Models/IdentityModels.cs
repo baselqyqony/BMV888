@@ -24,7 +24,7 @@ namespace Bee_Project.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
+        public DbSet<ServiceProvider> ServicesProviders { set; get; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
