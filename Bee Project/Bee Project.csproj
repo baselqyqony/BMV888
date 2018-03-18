@@ -189,11 +189,54 @@
     <Compile Include="Migrations\201803172200420_AddServicesProvidersTable.Designer.cs">
       <DependentUpon>201803172200420_AddServicesProvidersTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803181049186_AddServicesTable.cs" />
+    <Compile Include="Migrations\201803181049186_AddServicesTable.Designer.cs">
+      <DependentUpon>201803181049186_AddServicesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803181126177_deleteappointmentcolumninServicestable.cs" />
+    <Compile Include="Migrations\201803181126177_deleteappointmentcolumninServicestable.Designer.cs">
+      <DependentUpon>201803181126177_deleteappointmentcolumninServicestable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803181128230_AddAppointmentsTable.cs" />
+    <Compile Include="Migrations\201803181128230_AddAppointmentsTable.Designer.cs">
+      <DependentUpon>201803181128230_AddAppointmentsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803181140471_AddCustomersTable.cs" />
+    <Compile Include="Migrations\201803181140471_AddCustomersTable.Designer.cs">
+      <DependentUpon>201803181140471_AddCustomersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803181151059_AddAddressesTable.cs" />
+    <Compile Include="Migrations\201803181151059_AddAddressesTable.Designer.cs">
+      <DependentUpon>201803181151059_AddAddressesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803181154364_AddAddressesTable-Force.cs" />
+    <Compile Include="Migrations\201803181154364_AddAddressesTable-Force.Designer.cs">
+      <DependentUpon>201803181154364_AddAddressesTable-Force.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803181200577_AddserviceTypesTable.cs" />
+    <Compile Include="Migrations\201803181200577_AddserviceTypesTable.Designer.cs">
+      <DependentUpon>201803181200577_AddserviceTypesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803181206537_AddCountrysTable.cs" />
+    <Compile Include="Migrations\201803181206537_AddCountrysTable.Designer.cs">
+      <DependentUpon>201803181206537_AddCountrysTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803181210057_AddCitiesTable.cs" />
+    <Compile Include="Migrations\201803181210057_AddCitiesTable.Designer.cs">
+      <DependentUpon>201803181210057_AddCitiesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Addresse.cs" />
+    <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Service.cs" />
     <Compile Include="Models\serviceProvider.cs" />
+    <Compile Include="Models\ServiceType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -291,6 +334,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803172200420_AddServicesProvidersTable.resx">
       <DependentUpon>201803172200420_AddServicesProvidersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803181049186_AddServicesTable.resx">
+      <DependentUpon>201803181049186_AddServicesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803181126177_deleteappointmentcolumninServicestable.resx">
+      <DependentUpon>201803181126177_deleteappointmentcolumninServicestable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803181128230_AddAppointmentsTable.resx">
+      <DependentUpon>201803181128230_AddAppointmentsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803181140471_AddCustomersTable.resx">
+      <DependentUpon>201803181140471_AddCustomersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803181151059_AddAddressesTable.resx">
+      <DependentUpon>201803181151059_AddAddressesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803181154364_AddAddressesTable-Force.resx">
+      <DependentUpon>201803181154364_AddAddressesTable-Force.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803181200577_AddserviceTypesTable.resx">
+      <DependentUpon>201803181200577_AddserviceTypesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803181206537_AddCountrysTable.resx">
+      <DependentUpon>201803181206537_AddCountrysTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803181210057_AddCitiesTable.resx">
+      <DependentUpon>201803181210057_AddCitiesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

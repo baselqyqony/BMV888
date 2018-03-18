@@ -24,7 +24,15 @@ namespace Bee_Project.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        //add tables here to generate them to database
         public DbSet<ServiceProvider> ServicesProviders { set; get; }
+        public DbSet<Service> Services { set; get; }
+        public DbSet<Appointment> Appointments { set; get; }
+        public DbSet<Customer> Customers { set; get; }
+        public DbSet<Addresse> Addresses { set; get; }
+        public DbSet<ServiceType> ServiceTypes { set; get; }
+        public DbSet<City> Countrys { set; get; }
+        public DbSet<Country> Cities { set; get; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
