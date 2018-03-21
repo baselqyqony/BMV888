@@ -170,6 +170,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Customer\CustomerAreaRegistration.cs" />
     <Compile Include="Areas\ServiceProvider\Controllers\ServiceProviderController.cs" />
+    <Compile Include="Areas\ServiceProvider\Models\VModel\UserVM.cs" />
     <Compile Include="Areas\ServiceProvider\ServiceProviderAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -225,15 +226,45 @@
     <Compile Include="Migrations\201803181210057_AddCitiesTable.Designer.cs">
       <DependentUpon>201803181210057_AddCitiesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803181313394_AddAdressesIDToAspNetusers.cs" />
+    <Compile Include="Migrations\201803181313394_AddAdressesIDToAspNetusers.Designer.cs">
+      <DependentUpon>201803181313394_AddAdressesIDToAspNetusers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803181401457_AddBuildingToAddressesTable.cs" />
+    <Compile Include="Migrations\201803181401457_AddBuildingToAddressesTable.Designer.cs">
+      <DependentUpon>201803181401457_AddBuildingToAddressesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803181753365_changeincountryandcitytable.cs" />
+    <Compile Include="Migrations\201803181753365_changeincountryandcitytable.Designer.cs">
+      <DependentUpon>201803181753365_changeincountryandcitytable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803181841182_AddCountryIDToCitieTable.cs" />
+    <Compile Include="Migrations\201803181841182_AddCountryIDToCitieTable.Designer.cs">
+      <DependentUpon>201803181841182_AddCountryIDToCitieTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803201418278_addpostcodeandpositiontoaddress.cs" />
+    <Compile Include="Migrations\201803201418278_addpostcodeandpositiontoaddress.Designer.cs">
+      <DependentUpon>201803201418278_addpostcodeandpositiontoaddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803201447063_addAppointmentstatustable.cs" />
+    <Compile Include="Migrations\201803201447063_addAppointmentstatustable.Designer.cs">
+      <DependentUpon>201803201447063_addAppointmentstatustable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803201456136_addmetadatatable.cs" />
+    <Compile Include="Migrations\201803201456136_addmetadatatable.Designer.cs">
+      <DependentUpon>201803201456136_addmetadatatable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresse.cs" />
     <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\AppointmentStatus.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MetaData.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\serviceProvider.cs" />
     <Compile Include="Models\ServiceType.cs" />
@@ -254,9 +285,9 @@
     <Content Include="Areas\ServiceProvider\Views\web.config" />
     <Content Include="Areas\ServiceProvider\Views\_ViewStart.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\ServiceProvider\Views\ServiceProvider\Profile.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\ServiceProvider\ServiceDetails.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\ServiceProvider\Service.cshtml" />
+    <Content Include="Areas\ServiceProvider\Views\ServiceProvider\Profile.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -281,7 +312,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_CustomerLayout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Customermainview.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -316,7 +346,6 @@
     <Folder Include="Areas\Customer\Controllers\" />
     <Folder Include="Areas\Customer\Models\" />
     <Folder Include="Areas\Customer\Views\Shared\" />
-    <Folder Include="Areas\ServiceProvider\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -361,6 +390,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803181210057_AddCitiesTable.resx">
       <DependentUpon>201803181210057_AddCitiesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803181313394_AddAdressesIDToAspNetusers.resx">
+      <DependentUpon>201803181313394_AddAdressesIDToAspNetusers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803181401457_AddBuildingToAddressesTable.resx">
+      <DependentUpon>201803181401457_AddBuildingToAddressesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803181753365_changeincountryandcitytable.resx">
+      <DependentUpon>201803181753365_changeincountryandcitytable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803181841182_AddCountryIDToCitieTable.resx">
+      <DependentUpon>201803181841182_AddCountryIDToCitieTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803201418278_addpostcodeandpositiontoaddress.resx">
+      <DependentUpon>201803201418278_addpostcodeandpositiontoaddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803201447063_addAppointmentstatustable.resx">
+      <DependentUpon>201803201447063_addAppointmentstatustable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803201456136_addmetadatatable.resx">
+      <DependentUpon>201803201456136_addmetadatatable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

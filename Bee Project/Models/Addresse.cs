@@ -22,8 +22,14 @@ namespace Bee_Project.Models
 
         public string Street { get; set; }
 
+        public string Building { get; set; }
+
         public int Floornumber { get; set; }
 
         public int DoorNumber { get; set; }
+
+        public string PotalCode { get; set; }
+        public string longitude { get; set; }
+        public string ultitude { get; set; }
     }
 }

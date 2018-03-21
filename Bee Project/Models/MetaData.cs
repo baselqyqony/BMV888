@@ -6,18 +6,11 @@ using System.Web;
 
 namespace Bee_Project.Models
 {
-    public class City
+    public class MetaData
     {
-        [Required]
         public int ID { get; set; }
-
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
-
-
-        [Required]
-        public int CountryID { get; set; }
-
     }
 }

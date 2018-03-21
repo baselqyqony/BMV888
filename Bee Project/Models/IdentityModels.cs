@@ -9,6 +9,7 @@ namespace Bee_Project.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public int AddressesID { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -31,8 +32,10 @@ namespace Bee_Project.Models
         public DbSet<Customer> Customers { set; get; }
         public DbSet<Addresse> Addresses { set; get; }
         public DbSet<ServiceType> ServiceTypes { set; get; }
-        public DbSet<City> Countrys { set; get; }
-        public DbSet<Country> Cities { set; get; }
+        public DbSet<Country> Countrys { set; get; }
+        public DbSet<City> Cities { set; get; }
+        public DbSet<AppointmentStatus> AppointmentStatus { set; get; }
+        public DbSet<MetaData> MetaData { set; get; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

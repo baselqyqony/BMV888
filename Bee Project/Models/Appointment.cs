@@ -27,5 +27,7 @@ namespace Bee_Project.Models
 
         [Required]
         public int ServiceID{ get; set; }
+
+
     }
 }
