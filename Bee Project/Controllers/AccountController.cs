@@ -18,9 +18,10 @@ namespace Bee_Project.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        ApplicationDbContext context; 
         public AccountController()
         {
+            context = new ApplicationDbContext(); 
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -140,6 +141,8 @@ namespace Bee_Project.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
+                                           .ToList(), "Name", "Name");   
             return View();
         }
 
@@ -168,9 +171,29 @@ namespace Bee_Project.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    
+                    await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                    if (model.UserRoles=="ServiceProvider")
+                    {
+                        ServiceProvider newerviceprovider = new ServiceProvider();
+                        newerviceprovider.UserID = user.Id;
+                        context.ServicesProviders.Add(newerviceprovider);
 
+                    }
+                    else
+                        if (model.UserRoles=="Customer")
+                        {
+                            Customer newcustomer = new Customer();
+                            newcustomer.UserID = user.Id;
+                            context.Customers.Add(newcustomer);
+                          
+
+                        }
+                    context.SaveChanges();
                     return RedirectToAction("Index", "Home");
                 }
+                ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
+                                          .ToList(), "Name", "Name");   
                 AddErrors(result);
             }
 

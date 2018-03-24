@@ -28,12 +28,19 @@ namespace Bee_Project.Controllers
 
             return View();
         }
-    
-        public ActionResult Mainview()
-        {
-          if (User.IsInRole("AppManager"))
-          return View("ManagerMainview");
-          return View("Customermainview");
-        }
+
+         public ActionResult Mainview()
+         {
+             if (User.Identity.IsAuthenticated)
+             {
+                 if (User.IsInRole("Serviceprovider"))
+                     return RedirectToAction("Profile", "ServiceProvider", new { area = "ServiceProvider" });
+                 else
+                     if (User.IsInRole("Customer"))
+                         return RedirectToAction("Profile", "Customer", new { area = "Customer" });
+
+             }
+             return RedirectToAction("Index");
+         }
     }
 }

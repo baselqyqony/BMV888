@@ -254,6 +254,14 @@
     <Compile Include="Migrations\201803201456136_addmetadatatable.Designer.cs">
       <DependentUpon>201803201456136_addmetadatatable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803240726085_changeIDTypeinerviceprovidertbandcustomertb.cs" />
+    <Compile Include="Migrations\201803240726085_changeIDTypeinerviceprovidertbandcustomertb.Designer.cs">
+      <DependentUpon>201803240726085_changeIDTypeinerviceprovidertbandcustomertb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.cs" />
+    <Compile Include="Migrations\201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.Designer.cs">
+      <DependentUpon>201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresse.cs" />
@@ -411,6 +419,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803201456136_addmetadatatable.resx">
       <DependentUpon>201803201456136_addmetadatatable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803240726085_changeIDTypeinerviceprovidertbandcustomertb.resx">
+      <DependentUpon>201803240726085_changeIDTypeinerviceprovidertbandcustomertb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.resx">
+      <DependentUpon>201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

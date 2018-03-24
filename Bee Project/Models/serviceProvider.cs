@@ -12,13 +12,13 @@ namespace Bee_Project.Models
         public int ID { get; set; }
 
         [Required]
-        public int UserID { get; set; }
+        public string UserID { get; set; }
 
-        [Required]
+        
         public int AddressID { get; set; }
    
         [StringLength(255)]
-        [Required]
+      
         public string CompanyName { get; set; }
 
     }

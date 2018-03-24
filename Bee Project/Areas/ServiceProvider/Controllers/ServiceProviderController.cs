@@ -20,21 +20,29 @@ namespace Bee_Project.Areas.ServiceProvider.Controllers
             _context = new ApplicationDbContext();
         }
 
-       
+        UserVM userVMB;
         [HttpGet]
-        
         public ActionResult Profile()
         {
+            List<SelectListItem> Batch = new List<SelectListItem>
+             {
+                    new SelectListItem {Text = "0", Value = "39"},
+             };
+            ViewBag.Batch = Batch;
             string currentuserid = User.Identity.GetUserId();
-            UserVM userVMB = new UserVM();
+            userVMB = new UserVM();
            var userfromdb =_context.Users.Where(m => m.Id == currentuserid).First();
 
            userVMB.UserName = userfromdb.UserName;
            userVMB.Phone = userfromdb.PhoneNumber;
            userVMB.Email = userfromdb.Email;
            userVMB.Countries=_context.Countrys.ToList();
-           userVMB.cities = _context.Cities.ToList();
+           if (userVMB.CountryID == null || userVMB.CountryID==0)
+                userVMB.cities = _context.Cities.Where(m => m.CountryID == 0).ToList();
+           else
+               userVMB.cities = _context.Cities.Where(m => m.CountryID == userVMB.CountryID).ToList();
             return View(userVMB);
+            
         }
 
         public ActionResult Service()
@@ -49,11 +57,10 @@ namespace Bee_Project.Areas.ServiceProvider.Controllers
         [HttpPost]
         public ActionResult GetCityByStaeId(int stateid)
         {
-            List<City> objcity = new List<City>();
-            objcity = _context.Cities.Where(m => m.CountryID == stateid).ToList();
-            SelectList obgcity = new SelectList(objcity, "Id", "Name", 0);
-            ViewData["FeedBack"] = objcity;
-            return Json(obgcity);
+
+          List<City>  cities = _context.Cities.Where(m => m.CountryID == stateid).ToList();
+          return Json(cities.AsEnumerable(), JsonRequestBehavior.AllowGet);
+            
         }
     }
 }
