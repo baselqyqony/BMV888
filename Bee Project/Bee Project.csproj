@@ -169,8 +169,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Customer\CustomerAreaRegistration.cs" />
+    <Compile Include="Areas\ServiceProvider\Controllers\ServiceController.cs" />
     <Compile Include="Areas\ServiceProvider\Controllers\ServiceProviderController.cs" />
     <Compile Include="Areas\ServiceProvider\Models\VModel\UserVM.cs" />
+    <Compile Include="Areas\ServiceProvider\Models\VModel\VService.cs" />
     <Compile Include="Areas\ServiceProvider\ServiceProviderAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -262,6 +264,14 @@
     <Compile Include="Migrations\201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.Designer.cs">
       <DependentUpon>201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803262004436_changeServiceprovider3.cs" />
+    <Compile Include="Migrations\201803262004436_changeServiceprovider3.Designer.cs">
+      <DependentUpon>201803262004436_changeServiceprovider3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803262103513_returnServiceProvideIDToString.cs" />
+    <Compile Include="Migrations\201803262103513_returnServiceProvideIDToString.Designer.cs">
+      <DependentUpon>201803262103513_returnServiceProvideIDToString.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresse.cs" />
@@ -296,6 +306,7 @@
     <Content Include="Areas\ServiceProvider\Views\ServiceProvider\ServiceDetails.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\ServiceProvider\Service.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\ServiceProvider\Profile.cshtml" />
+    <Content Include="Areas\ServiceProvider\Views\Service\CreateService.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -351,6 +362,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="App_Start\Service\" />
     <Folder Include="Areas\Customer\Controllers\" />
     <Folder Include="Areas\Customer\Models\" />
     <Folder Include="Areas\Customer\Views\Shared\" />
@@ -425,6 +437,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.resx">
       <DependentUpon>201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803262004436_changeServiceprovider3.resx">
+      <DependentUpon>201803262004436_changeServiceprovider3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803262103513_returnServiceProvideIDToString.resx">
+      <DependentUpon>201803262103513_returnServiceProvideIDToString.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
