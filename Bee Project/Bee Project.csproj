@@ -173,6 +173,7 @@
     <Compile Include="Areas\ServiceProvider\Controllers\ServiceProviderController.cs" />
     <Compile Include="Areas\ServiceProvider\Models\VModel\UserVM.cs" />
     <Compile Include="Areas\ServiceProvider\Models\VModel\VService.cs" />
+    <Compile Include="Areas\ServiceProvider\Models\VModel\VServiceItem.cs" />
     <Compile Include="Areas\ServiceProvider\ServiceProviderAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -272,6 +273,26 @@
     <Compile Include="Migrations\201803262103513_returnServiceProvideIDToString.Designer.cs">
       <DependentUpon>201803262103513_returnServiceProvideIDToString.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803282235257_addServiceInfoToService.cs" />
+    <Compile Include="Migrations\201803282235257_addServiceInfoToService.Designer.cs">
+      <DependentUpon>201803282235257_addServiceInfoToService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803282328516_addServiceMetaDataToService.cs" />
+    <Compile Include="Migrations\201803282328516_addServiceMetaDataToService.Designer.cs">
+      <DependentUpon>201803282328516_addServiceMetaDataToService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803282332564_removeServiceMetaDataFromService.cs" />
+    <Compile Include="Migrations\201803282332564_removeServiceMetaDataFromService.Designer.cs">
+      <DependentUpon>201803282332564_removeServiceMetaDataFromService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803290024240_addServiceMetaDataTable.cs" />
+    <Compile Include="Migrations\201803290024240_addServiceMetaDataTable.Designer.cs">
+      <DependentUpon>201803290024240_addServiceMetaDataTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803291725358_service.cs" />
+    <Compile Include="Migrations\201803291725358_service.Designer.cs">
+      <DependentUpon>201803291725358_service.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresse.cs" />
@@ -284,6 +305,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MetaData.cs" />
     <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\ServiceMetaDatas.cs" />
     <Compile Include="Models\serviceProvider.cs" />
     <Compile Include="Models\ServiceType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -307,6 +329,7 @@
     <Content Include="Areas\ServiceProvider\Views\ServiceProvider\Service.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\ServiceProvider\Profile.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\Service\CreateService.cshtml" />
+    <Content Include="Areas\ServiceProvider\Views\Service\ListServices.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -443,6 +466,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803262103513_returnServiceProvideIDToString.resx">
       <DependentUpon>201803262103513_returnServiceProvideIDToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803282235257_addServiceInfoToService.resx">
+      <DependentUpon>201803282235257_addServiceInfoToService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803282328516_addServiceMetaDataToService.resx">
+      <DependentUpon>201803282328516_addServiceMetaDataToService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803282332564_removeServiceMetaDataFromService.resx">
+      <DependentUpon>201803282332564_removeServiceMetaDataFromService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803290024240_addServiceMetaDataTable.resx">
+      <DependentUpon>201803290024240_addServiceMetaDataTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803291725358_service.resx">
+      <DependentUpon>201803291725358_service.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

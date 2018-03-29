@@ -1,0 +1,18 @@
+namespace Bee_Project.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class addServiceMetaDataToService : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.Services", "serviceMetaData", c => c.String());
+        }
+        
+        public override void Down()
+        {
+            DropColumn("dbo.Services", "serviceMetaData");
+        }
+    }
+}
