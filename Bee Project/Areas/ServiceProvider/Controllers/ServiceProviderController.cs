@@ -19,32 +19,61 @@ namespace Bee_Project.Areas.ServiceProvider.Controllers
         {
             _context = new ApplicationDbContext();
         }
-
+       
         UserVM userVMB;
         [HttpGet]
         public ActionResult Profile()
         {
-            List<SelectListItem> Batch = new List<SelectListItem>
-             {
-                    new SelectListItem {Text = "0", Value = "39"},
-             };
-            ViewBag.Batch = Batch;
+            
             string currentuserid = User.Identity.GetUserId();
             userVMB = new UserVM();
-           var userfromdb =_context.Users.Where(m => m.Id == currentuserid).First();
-
+            Bee_Project.Models.ServiceProvider userfromdb = _context.ServicesProviders.Where(m => m.UserID == currentuserid).First();
            userVMB.UserName = userfromdb.UserName;
            userVMB.Phone = userfromdb.PhoneNumber;
-           userVMB.Email = userfromdb.Email;
-           userVMB.Countries=_context.Countrys.ToList();
-           if (userVMB.CountryID == null || userVMB.CountryID==0)
-                userVMB.cities = _context.Cities.Where(m => m.CountryID == 0).ToList();
-           else
-               userVMB.cities = _context.Cities.Where(m => m.CountryID == userVMB.CountryID).ToList();
+           userVMB.CompanyName = userfromdb.CompanyName;
+           userVMB.Addresses = new Models.VModel.AddressesVM();
+           userVMB.Addresses.Addresses = new Addresse();
+           if (userfromdb.AddressesID!=0)
+           {
+               userVMB.AddressesID = userfromdb.AddressesID;
+               userVMB.Addresses.Addresses = _context.Addresses.Where(m => m.ID == userfromdb.AddressesID).First();
+           }
+           userVMB.Addresses.Countries = _context.Countrys.ToList();
+           userVMB.Addresses.cities = _context.Cities.ToList();
             return View(userVMB);
             
         }
+        [HttpPost]
+        public ActionResult Save(UserVM uservmmode)
+        {
+         
+             string currentuserid = User.Identity.GetUserId();
+              Bee_Project.Models.ServiceProvider serviceprovider = _context.ServicesProviders.Where(m => m.UserID == currentuserid).First();
+              serviceprovider.UserName = uservmmode.UserName;
+              serviceprovider.PhoneNumber = uservmmode.Phone;
+              serviceprovider.CompanyName = uservmmode.CompanyName;
+              if (uservmmode.AddressesID==0)
+              { 
+              _context.Addresses.Add(uservmmode.Addresses.Addresses);
+              _context.SaveChanges();
 
+              uservmmode.AddressesID=uservmmode.Addresses.Addresses.ID;
+              serviceprovider.AddressesID = uservmmode.AddressesID;
+              }
+              Addresse addressesdb = _context.Addresses.Where(m => m.ID == uservmmode.AddressesID).First();
+              addressesdb = uservmmode.Addresses.Addresses;
+
+              _context.SaveChanges();
+
+              return RedirectToAction("Profile");
+            
+
+        }
+        public ActionResult CompanyProfile()
+        {
+
+            return View();
+        }
         public ActionResult Service()
         {
             return View();
@@ -57,10 +86,12 @@ namespace Bee_Project.Areas.ServiceProvider.Controllers
         [HttpPost]
         public ActionResult GetCityByStaeId(int stateid)
         {
+          List< City>Cities = _context.Cities.Where(m => m.CountryID == stateid).ToList();
 
-          List<City>  cities = _context.Cities.Where(m => m.CountryID == stateid).ToList();
-          return Json(cities.AsEnumerable(), JsonRequestBehavior.AllowGet);
-            
+          SelectList obgcity = new SelectList(Cities, "Id", "CityName", 0);
+          return Json(obgcity);
         }
     }
+
+
 }

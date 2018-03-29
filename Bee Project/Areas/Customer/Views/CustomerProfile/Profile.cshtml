@@ -1,4 +1,4 @@
-﻿@model Bee_Project.Areas.ServiceProvider.Models.VMModel.UserVM
+﻿@model Bee_Project.Areas.Customer.Models.VModel.VMCustomer
 
 @{
     ViewBag.Title = "Profile";
@@ -7,10 +7,10 @@
 <h2>Profile</h2>
 
 
-@using (Html.BeginForm("Save","ServiceProvider"))
+@using (Html.BeginForm("Save", "CustomerProfile"))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Personal Inormation</h4>
         <hr />
@@ -24,13 +24,6 @@
                 @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -39,9 +32,9 @@
                 @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
             </div>
         </div>
-       
+
         <div>
-            @{Html.RenderPartial("~/Areas/ServiceProvider/Views/ServiceProvider/Addresses.cshtml", Model);}
+            @{Html.RenderPartial("~/Areas/Customer/Views/Shared/Addresses.cshtml", Model);}
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -52,6 +45,8 @@
 }
 
 <div>
+ 
+   
     @Html.ActionLink("Home Page", "Index", "Home", new { area = "" }, null)
 </div>
 

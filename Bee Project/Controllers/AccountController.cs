@@ -10,6 +10,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Bee_Project.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Newtonsoft.Json;
+using System.Net;
 
 namespace Bee_Project.Controllers
 {
@@ -153,6 +155,14 @@ namespace Bee_Project.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+
+            CaptchaResponse response = ValidateCaptcha(Request["g-recaptcha-response"]); 
+          if(!response.Success)
+          {
+              return Content("Error From Google ReCaptcha : " + response.ErrorMessage[0].ToString());
+          }
+            else
+          
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
@@ -168,10 +178,12 @@ namespace Bee_Project.Controllers
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    //string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     
+
+
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
                     if (model.UserRoles=="ServiceProvider")
                     {
@@ -185,11 +197,18 @@ namespace Bee_Project.Controllers
                         {
                             Customer newcustomer = new Customer();
                             newcustomer.UserID = user.Id;
+                            newcustomer.UserName = model.Email;
+                            newcustomer.Age = 0;
                             context.Customers.Add(newcustomer);
                           
 
                         }
                     context.SaveChanges();
+                   
+
+                    //ActivationUserController obj = new ActivationUserController();
+                    //obj.SendActivationEmail(user);
+
                     return RedirectToAction("Index", "Home");
                 }
                 ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
@@ -200,6 +219,13 @@ namespace Bee_Project.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+        public static CaptchaResponse ValidateCaptcha(string response)
+        {
+            string secret = System.Web.Configuration.WebConfigurationManager.AppSettings["recaptchaPrivateKey"];
+            var client = new WebClient();
+            var jsonResult = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, response));
+            return JsonConvert.DeserializeObject<CaptchaResponse>(jsonResult.ToString());
+        }  
 
         //
         // GET: /Account/ConfirmEmail

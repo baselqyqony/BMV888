@@ -168,11 +168,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Customer\Controllers\CustomerProfileController.cs" />
     <Compile Include="Areas\Customer\CustomerAreaRegistration.cs" />
+    <Compile Include="Areas\Customer\Models\VModel\VMCustomer.cs" />
     <Compile Include="Areas\ServiceProvider\Controllers\ServiceProviderController.cs" />
+    <Compile Include="Areas\ServiceProvider\Models\VModel\AddressesVM.cs" />
     <Compile Include="Areas\ServiceProvider\Models\VModel\UserVM.cs" />
     <Compile Include="Areas\ServiceProvider\ServiceProviderAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActivationUserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -262,11 +266,56 @@
     <Compile Include="Migrations\201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.Designer.cs">
       <DependentUpon>201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803242006572_changeuserfields.cs" />
+    <Compile Include="Migrations\201803242006572_changeuserfields.Designer.cs">
+      <DependentUpon>201803242006572_changeuserfields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803242128127_ForignKeytoAddresses.cs" />
+    <Compile Include="Migrations\201803242128127_ForignKeytoAddresses.Designer.cs">
+      <DependentUpon>201803242128127_ForignKeytoAddresses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803251532072_unknown.cs" />
+    <Compile Include="Migrations\201803251532072_unknown.Designer.cs">
+      <DependentUpon>201803251532072_unknown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803251547014_unknown1.cs" />
+    <Compile Include="Migrations\201803251547014_unknown1.Designer.cs">
+      <DependentUpon>201803251547014_unknown1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803251652191_addnotationtoaddresses.cs" />
+    <Compile Include="Migrations\201803251652191_addnotationtoaddresses.Designer.cs">
+      <DependentUpon>201803251652191_addnotationtoaddresses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803270907518_addaddressesIDtocustomeraddresses.cs" />
+    <Compile Include="Migrations\201803270907518_addaddressesIDtocustomeraddresses.Designer.cs">
+      <DependentUpon>201803270907518_addaddressesIDtocustomeraddresses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803270911064_addaddressesIDtocustomeraddresses1.cs" />
+    <Compile Include="Migrations\201803270911064_addaddressesIDtocustomeraddresses1.Designer.cs">
+      <DependentUpon>201803270911064_addaddressesIDtocustomeraddresses1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803270936522_changeagerange.cs" />
+    <Compile Include="Migrations\201803270936522_changeagerange.Designer.cs">
+      <DependentUpon>201803270936522_changeagerange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803280635207_addUserActvationsTb.cs" />
+    <Compile Include="Migrations\201803280635207_addUserActvationsTb.Designer.cs">
+      <DependentUpon>201803280635207_addUserActvationsTb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803280649365_addUserActvationsTb1.cs" />
+    <Compile Include="Migrations\201803280649365_addUserActvationsTb1.Designer.cs">
+      <DependentUpon>201803280649365_addUserActvationsTb1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803280652495_addUserActvationsTb2.cs" />
+    <Compile Include="Migrations\201803280652495_addUserActvationsTb2.Designer.cs">
+      <DependentUpon>201803280652495_addUserActvationsTb2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresse.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\AppointmentStatus.cs" />
+    <Compile Include="Models\CaptchaResponse.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -276,6 +325,7 @@
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\serviceProvider.cs" />
     <Compile Include="Models\ServiceType.cs" />
+    <Compile Include="Models\UserActivations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -295,7 +345,10 @@
     <Content Include="Areas\ServiceProvider\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\ServiceProvider\ServiceDetails.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\ServiceProvider\Service.cshtml" />
+    <Content Include="Areas\ServiceProvider\Views\ServiceProvider\Addresses.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\ServiceProvider\Profile.cshtml" />
+    <Content Include="Areas\Customer\Views\CustomerProfile\Profile.cshtml" />
+    <Content Include="Areas\Customer\Views\Shared\Addresses.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -348,12 +401,10 @@
     <Content Include="Views\Shared\_ServiceProviderLayout.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\ActivationUser\Activation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Customer\Controllers\" />
-    <Folder Include="Areas\Customer\Models\" />
-    <Folder Include="Areas\Customer\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -425,6 +476,39 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.resx">
       <DependentUpon>201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803242006572_changeuserfields.resx">
+      <DependentUpon>201803242006572_changeuserfields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803242128127_ForignKeytoAddresses.resx">
+      <DependentUpon>201803242128127_ForignKeytoAddresses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803251532072_unknown.resx">
+      <DependentUpon>201803251532072_unknown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803251547014_unknown1.resx">
+      <DependentUpon>201803251547014_unknown1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803251652191_addnotationtoaddresses.resx">
+      <DependentUpon>201803251652191_addnotationtoaddresses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803270907518_addaddressesIDtocustomeraddresses.resx">
+      <DependentUpon>201803270907518_addaddressesIDtocustomeraddresses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803270911064_addaddressesIDtocustomeraddresses1.resx">
+      <DependentUpon>201803270911064_addaddressesIDtocustomeraddresses1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803270936522_changeagerange.resx">
+      <DependentUpon>201803270936522_changeagerange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803280635207_addUserActvationsTb.resx">
+      <DependentUpon>201803280635207_addUserActvationsTb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803280649365_addUserActvationsTb1.resx">
+      <DependentUpon>201803280649365_addUserActvationsTb1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803280652495_addUserActvationsTb2.resx">
+      <DependentUpon>201803280652495_addUserActvationsTb2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

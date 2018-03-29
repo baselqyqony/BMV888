@@ -1,17 +1,14 @@
-﻿using Bee_Project.Models;
-using Bee_Project.Areas.ServiceProvider.Models.VModel;
+﻿using Bee_Project.Areas.ServiceProvider.Models.VModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace Bee_Project.Areas.ServiceProvider.Models.VMModel
+namespace Bee_Project.Areas.Customer.Models.VModel
 {
-    public class UserVM
+    public class VMCustomer
     {
-
         [Required]
         [Key]
         public int UserID { get; set; }
@@ -20,9 +17,7 @@ namespace Bee_Project.Areas.ServiceProvider.Models.VMModel
         [StringLength(50)]
         public string UserName { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string CompanyName { get; set; }
+       
 
         [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
@@ -32,9 +27,8 @@ namespace Bee_Project.Areas.ServiceProvider.Models.VMModel
         public string Email { get; set; }
 
         public int AddressesID { get; set; }
-     
-        public AddressesVM Addresses { get; set; }
 
+        public AddressesVM Addresses { get; set; }
 
     }
 }

@@ -33,11 +33,11 @@ namespace Bee_Project.Controllers
          {
              if (User.Identity.IsAuthenticated)
              {
-                 if (User.IsInRole("Serviceprovider"))
+                 if (User.IsInRole("ServiceProvider"))
                      return RedirectToAction("Profile", "ServiceProvider", new { area = "ServiceProvider" });
                  else
                      if (User.IsInRole("Customer"))
-                         return RedirectToAction("Profile", "Customer", new { area = "Customer" });
+                         return RedirectToAction("Profile", "CustomerProfile", new { area = "Customer" });
 
              }
              return RedirectToAction("Index");
