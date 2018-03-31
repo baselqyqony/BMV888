@@ -272,7 +272,6 @@
     <Compile Include="Migrations\201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.Designer.cs">
       <DependentUpon>201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Migrations\201803242006572_changeuserfields.cs" />
     <Compile Include="Migrations\201803242006572_changeuserfields.Designer.cs">
       <DependentUpon>201803242006572_changeuserfields.cs</DependentUpon>
@@ -314,10 +313,13 @@
       <DependentUpon>201803280649365_addUserActvationsTb1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201803280652495_addUserActvationsTb2.cs" />
+	
     <Compile Include="Migrations\201803280652495_addUserActvationsTb2.Designer.cs">
       <DependentUpon>201803280652495_addUserActvationsTb2.cs</DependentUpon>
-
+	</Compile>
+	  
     <Compile Include="Migrations\201803262004436_changeServiceprovider3.cs" />
+	
     <Compile Include="Migrations\201803262004436_changeServiceprovider3.Designer.cs">
       <DependentUpon>201803262004436_changeServiceprovider3.cs</DependentUpon>
     </Compile>
@@ -558,7 +560,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803280652495_addUserActvationsTb2.resx">
       <DependentUpon>201803280652495_addUserActvationsTb2.cs</DependentUpon>
-
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803262004436_changeServiceprovider3.resx">
       <DependentUpon>201803262004436_changeServiceprovider3.cs</DependentUpon>
     </EmbeddedResource>
