@@ -22,5 +22,13 @@ namespace Bee_Project.Models
 
         [Required]
         public int ServiceProviderID { get; set; }
+
+        [DataType(DataType.MultilineText)]
+        public string serviceInfo { get; set; }
+
+        public virtual ICollection<ServiceMetaDatas> ServiceMetaDatas { set; get; }
+      
+
+        
     }
 }

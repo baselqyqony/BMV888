@@ -36,7 +36,12 @@ namespace Bee_Project.Models
         public DbSet<City> Cities { set; get; }
         public DbSet<AppointmentStatus> AppointmentStatus { set; get; }
         public DbSet<MetaData> MetaData { set; get; }
+
         public DbSet<UserActivations> UserActivations { set; get; }
+
+
+        public DbSet<ServiceMetaDatas> ServiceMetaDatas { set; get; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
