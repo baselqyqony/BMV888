@@ -39,6 +39,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -115,12 +123,6 @@
     <Reference Include="System.Web.Http.WebHost">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -170,11 +172,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Customer\Controllers\CustomerProfileController.cs" />
     <Compile Include="Areas\Customer\CustomerAreaRegistration.cs" />
-
     <Compile Include="Areas\Customer\Models\VModel\VMCustomer.cs" />
-
     <Compile Include="Areas\ServiceProvider\Controllers\ServiceController.cs" />
-
     <Compile Include="Areas\ServiceProvider\Controllers\ServiceProviderController.cs" />
     <Compile Include="Areas\ServiceProvider\Models\VModel\AddressesVM.cs" />
     <Compile Include="Areas\ServiceProvider\Models\VModel\UserVM.cs" />
@@ -196,157 +195,9 @@
     <Compile Include="Migrations\201803102050247_seedusers.Designer.cs">
       <DependentUpon>201803102050247_seedusers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803172200420_AddServicesProvidersTable.cs" />
-    <Compile Include="Migrations\201803172200420_AddServicesProvidersTable.Designer.cs">
-      <DependentUpon>201803172200420_AddServicesProvidersTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803181049186_AddServicesTable.cs" />
-    <Compile Include="Migrations\201803181049186_AddServicesTable.Designer.cs">
-      <DependentUpon>201803181049186_AddServicesTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803181126177_deleteappointmentcolumninServicestable.cs" />
-    <Compile Include="Migrations\201803181126177_deleteappointmentcolumninServicestable.Designer.cs">
-      <DependentUpon>201803181126177_deleteappointmentcolumninServicestable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803181128230_AddAppointmentsTable.cs" />
-    <Compile Include="Migrations\201803181128230_AddAppointmentsTable.Designer.cs">
-      <DependentUpon>201803181128230_AddAppointmentsTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803181140471_AddCustomersTable.cs" />
-    <Compile Include="Migrations\201803181140471_AddCustomersTable.Designer.cs">
-      <DependentUpon>201803181140471_AddCustomersTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803181151059_AddAddressesTable.cs" />
-    <Compile Include="Migrations\201803181151059_AddAddressesTable.Designer.cs">
-      <DependentUpon>201803181151059_AddAddressesTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803181154364_AddAddressesTable-Force.cs" />
-    <Compile Include="Migrations\201803181154364_AddAddressesTable-Force.Designer.cs">
-      <DependentUpon>201803181154364_AddAddressesTable-Force.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803181200577_AddserviceTypesTable.cs" />
-    <Compile Include="Migrations\201803181200577_AddserviceTypesTable.Designer.cs">
-      <DependentUpon>201803181200577_AddserviceTypesTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803181206537_AddCountrysTable.cs" />
-    <Compile Include="Migrations\201803181206537_AddCountrysTable.Designer.cs">
-      <DependentUpon>201803181206537_AddCountrysTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803181210057_AddCitiesTable.cs" />
-    <Compile Include="Migrations\201803181210057_AddCitiesTable.Designer.cs">
-      <DependentUpon>201803181210057_AddCitiesTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803181313394_AddAdressesIDToAspNetusers.cs" />
-    <Compile Include="Migrations\201803181313394_AddAdressesIDToAspNetusers.Designer.cs">
-      <DependentUpon>201803181313394_AddAdressesIDToAspNetusers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803181401457_AddBuildingToAddressesTable.cs" />
-    <Compile Include="Migrations\201803181401457_AddBuildingToAddressesTable.Designer.cs">
-      <DependentUpon>201803181401457_AddBuildingToAddressesTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803181753365_changeincountryandcitytable.cs" />
-    <Compile Include="Migrations\201803181753365_changeincountryandcitytable.Designer.cs">
-      <DependentUpon>201803181753365_changeincountryandcitytable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803181841182_AddCountryIDToCitieTable.cs" />
-    <Compile Include="Migrations\201803181841182_AddCountryIDToCitieTable.Designer.cs">
-      <DependentUpon>201803181841182_AddCountryIDToCitieTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803201418278_addpostcodeandpositiontoaddress.cs" />
-    <Compile Include="Migrations\201803201418278_addpostcodeandpositiontoaddress.Designer.cs">
-      <DependentUpon>201803201418278_addpostcodeandpositiontoaddress.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803201447063_addAppointmentstatustable.cs" />
-    <Compile Include="Migrations\201803201447063_addAppointmentstatustable.Designer.cs">
-      <DependentUpon>201803201447063_addAppointmentstatustable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803201456136_addmetadatatable.cs" />
-    <Compile Include="Migrations\201803201456136_addmetadatatable.Designer.cs">
-      <DependentUpon>201803201456136_addmetadatatable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803240726085_changeIDTypeinerviceprovidertbandcustomertb.cs" />
-    <Compile Include="Migrations\201803240726085_changeIDTypeinerviceprovidertbandcustomertb.Designer.cs">
-      <DependentUpon>201803240726085_changeIDTypeinerviceprovidertbandcustomertb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.cs" />
-    <Compile Include="Migrations\201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.Designer.cs">
-      <DependentUpon>201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803242006572_changeuserfields.cs" />
-    <Compile Include="Migrations\201803242006572_changeuserfields.Designer.cs">
-      <DependentUpon>201803242006572_changeuserfields.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803242128127_ForignKeytoAddresses.cs" />
-    <Compile Include="Migrations\201803242128127_ForignKeytoAddresses.Designer.cs">
-      <DependentUpon>201803242128127_ForignKeytoAddresses.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803251532072_unknown.cs" />
-    <Compile Include="Migrations\201803251532072_unknown.Designer.cs">
-      <DependentUpon>201803251532072_unknown.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803251547014_unknown1.cs" />
-    <Compile Include="Migrations\201803251547014_unknown1.Designer.cs">
-      <DependentUpon>201803251547014_unknown1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803251652191_addnotationtoaddresses.cs" />
-    <Compile Include="Migrations\201803251652191_addnotationtoaddresses.Designer.cs">
-      <DependentUpon>201803251652191_addnotationtoaddresses.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803270907518_addaddressesIDtocustomeraddresses.cs" />
-    <Compile Include="Migrations\201803270907518_addaddressesIDtocustomeraddresses.Designer.cs">
-      <DependentUpon>201803270907518_addaddressesIDtocustomeraddresses.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803270911064_addaddressesIDtocustomeraddresses1.cs" />
-    <Compile Include="Migrations\201803270911064_addaddressesIDtocustomeraddresses1.Designer.cs">
-      <DependentUpon>201803270911064_addaddressesIDtocustomeraddresses1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803270936522_changeagerange.cs" />
-    <Compile Include="Migrations\201803270936522_changeagerange.Designer.cs">
-      <DependentUpon>201803270936522_changeagerange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803280635207_addUserActvationsTb.cs" />
-    <Compile Include="Migrations\201803280635207_addUserActvationsTb.Designer.cs">
-      <DependentUpon>201803280635207_addUserActvationsTb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803280649365_addUserActvationsTb1.cs" />
-    <Compile Include="Migrations\201803280649365_addUserActvationsTb1.Designer.cs">
-      <DependentUpon>201803280649365_addUserActvationsTb1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803280652495_addUserActvationsTb2.cs" />
-	
-    <Compile Include="Migrations\201803280652495_addUserActvationsTb2.Designer.cs">
-      <DependentUpon>201803280652495_addUserActvationsTb2.cs</DependentUpon>
-	</Compile>
-	  
-    <Compile Include="Migrations\201803262004436_changeServiceprovider3.cs" />
-	
-    <Compile Include="Migrations\201803262004436_changeServiceprovider3.Designer.cs">
-      <DependentUpon>201803262004436_changeServiceprovider3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803262103513_returnServiceProvideIDToString.cs" />
-    <Compile Include="Migrations\201803262103513_returnServiceProvideIDToString.Designer.cs">
-      <DependentUpon>201803262103513_returnServiceProvideIDToString.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803282235257_addServiceInfoToService.cs" />
-    <Compile Include="Migrations\201803282235257_addServiceInfoToService.Designer.cs">
-      <DependentUpon>201803282235257_addServiceInfoToService.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803282328516_addServiceMetaDataToService.cs" />
-    <Compile Include="Migrations\201803282328516_addServiceMetaDataToService.Designer.cs">
-      <DependentUpon>201803282328516_addServiceMetaDataToService.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803282332564_removeServiceMetaDataFromService.cs" />
-    <Compile Include="Migrations\201803282332564_removeServiceMetaDataFromService.Designer.cs">
-      <DependentUpon>201803282332564_removeServiceMetaDataFromService.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803290024240_addServiceMetaDataTable.cs" />
-    <Compile Include="Migrations\201803290024240_addServiceMetaDataTable.Designer.cs">
-      <DependentUpon>201803290024240_addServiceMetaDataTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803291725358_service.cs" />
-    <Compile Include="Migrations\201803291725358_service.Designer.cs">
-      <DependentUpon>201803291725358_service.cs</DependentUpon>
-
+    <Compile Include="Migrations\201804032156587_newmerrage.cs" />
+    <Compile Include="Migrations\201804032156587_newmerrage.Designer.cs">
+      <DependentUpon>201804032156587_newmerrage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -386,13 +237,10 @@
     <Content Include="Areas\ServiceProvider\Views\ServiceProvider\Service.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\ServiceProvider\Addresses.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\ServiceProvider\Profile.cshtml" />
-
     <Content Include="Areas\Customer\Views\CustomerProfile\Profile.cshtml" />
     <Content Include="Areas\Customer\Views\Shared\Addresses.cshtml" />
-
     <Content Include="Areas\ServiceProvider\Views\Service\CreateService.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\Service\ListServices.cshtml" />
-
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -449,12 +297,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-
     <Folder Include="App_Start\Service\" />
-    <Folder Include="Areas\Customer\Controllers\" />
-    <Folder Include="Areas\Customer\Models\" />
-    <Folder Include="Areas\Customer\Views\Shared\" />
-
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -470,118 +313,8 @@
     <EmbeddedResource Include="Migrations\201803102050247_seedusers.resx">
       <DependentUpon>201803102050247_seedusers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803172200420_AddServicesProvidersTable.resx">
-      <DependentUpon>201803172200420_AddServicesProvidersTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803181049186_AddServicesTable.resx">
-      <DependentUpon>201803181049186_AddServicesTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803181126177_deleteappointmentcolumninServicestable.resx">
-      <DependentUpon>201803181126177_deleteappointmentcolumninServicestable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803181128230_AddAppointmentsTable.resx">
-      <DependentUpon>201803181128230_AddAppointmentsTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803181140471_AddCustomersTable.resx">
-      <DependentUpon>201803181140471_AddCustomersTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803181151059_AddAddressesTable.resx">
-      <DependentUpon>201803181151059_AddAddressesTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803181154364_AddAddressesTable-Force.resx">
-      <DependentUpon>201803181154364_AddAddressesTable-Force.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803181200577_AddserviceTypesTable.resx">
-      <DependentUpon>201803181200577_AddserviceTypesTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803181206537_AddCountrysTable.resx">
-      <DependentUpon>201803181206537_AddCountrysTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803181210057_AddCitiesTable.resx">
-      <DependentUpon>201803181210057_AddCitiesTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803181313394_AddAdressesIDToAspNetusers.resx">
-      <DependentUpon>201803181313394_AddAdressesIDToAspNetusers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803181401457_AddBuildingToAddressesTable.resx">
-      <DependentUpon>201803181401457_AddBuildingToAddressesTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803181753365_changeincountryandcitytable.resx">
-      <DependentUpon>201803181753365_changeincountryandcitytable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803181841182_AddCountryIDToCitieTable.resx">
-      <DependentUpon>201803181841182_AddCountryIDToCitieTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803201418278_addpostcodeandpositiontoaddress.resx">
-      <DependentUpon>201803201418278_addpostcodeandpositiontoaddress.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803201447063_addAppointmentstatustable.resx">
-      <DependentUpon>201803201447063_addAppointmentstatustable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803201456136_addmetadatatable.resx">
-      <DependentUpon>201803201456136_addmetadatatable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803240726085_changeIDTypeinerviceprovidertbandcustomertb.resx">
-      <DependentUpon>201803240726085_changeIDTypeinerviceprovidertbandcustomertb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.resx">
-      <DependentUpon>201803240829254_deleterequiredfieldsfromcustomeranderviceprovider.cs</DependentUpon>
-    </EmbeddedResource>
-
-    <EmbeddedResource Include="Migrations\201803242006572_changeuserfields.resx">
-      <DependentUpon>201803242006572_changeuserfields.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803242128127_ForignKeytoAddresses.resx">
-      <DependentUpon>201803242128127_ForignKeytoAddresses.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803251532072_unknown.resx">
-      <DependentUpon>201803251532072_unknown.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803251547014_unknown1.resx">
-      <DependentUpon>201803251547014_unknown1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803251652191_addnotationtoaddresses.resx">
-      <DependentUpon>201803251652191_addnotationtoaddresses.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803270907518_addaddressesIDtocustomeraddresses.resx">
-      <DependentUpon>201803270907518_addaddressesIDtocustomeraddresses.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803270911064_addaddressesIDtocustomeraddresses1.resx">
-      <DependentUpon>201803270911064_addaddressesIDtocustomeraddresses1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803270936522_changeagerange.resx">
-      <DependentUpon>201803270936522_changeagerange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803280635207_addUserActvationsTb.resx">
-      <DependentUpon>201803280635207_addUserActvationsTb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803280649365_addUserActvationsTb1.resx">
-      <DependentUpon>201803280649365_addUserActvationsTb1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803280652495_addUserActvationsTb2.resx">
-      <DependentUpon>201803280652495_addUserActvationsTb2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803262004436_changeServiceprovider3.resx">
-      <DependentUpon>201803262004436_changeServiceprovider3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803262103513_returnServiceProvideIDToString.resx">
-      <DependentUpon>201803262103513_returnServiceProvideIDToString.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803282235257_addServiceInfoToService.resx">
-      <DependentUpon>201803282235257_addServiceInfoToService.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803282328516_addServiceMetaDataToService.resx">
-      <DependentUpon>201803282328516_addServiceMetaDataToService.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803282332564_removeServiceMetaDataFromService.resx">
-      <DependentUpon>201803282332564_removeServiceMetaDataFromService.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803290024240_addServiceMetaDataTable.resx">
-      <DependentUpon>201803290024240_addServiceMetaDataTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803291725358_service.resx">
-      <DependentUpon>201803291725358_service.cs</DependentUpon>
-
+    <EmbeddedResource Include="Migrations\201804032156587_newmerrage.resx">
+      <DependentUpon>201804032156587_newmerrage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
