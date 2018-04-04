@@ -168,7 +168,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Customer\Controllers\SearchController.cs" />
     <Compile Include="Areas\Customer\CustomerAreaRegistration.cs" />
+    <Compile Include="Areas\Customer\Models\VSearchModel.cs" />
     <Compile Include="Areas\ServiceProvider\Controllers\ServiceController.cs" />
     <Compile Include="Areas\ServiceProvider\Controllers\ServiceProviderController.cs" />
     <Compile Include="Areas\ServiceProvider\Models\VModel\UserVM.cs" />
@@ -330,6 +332,9 @@
     <Content Include="Areas\ServiceProvider\Views\ServiceProvider\Profile.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\Service\CreateService.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\Service\ListServices.cshtml" />
+    <Content Include="Areas\Customer\Views\Search\search.cshtml" />
+    <Content Include="Areas\ServiceProvider\Views\Service\ServiceDetail.cshtml" />
+    <Content Include="Areas\ServiceProvider\Views\Service\deleteService.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -386,8 +391,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_Start\Service\" />
-    <Folder Include="Areas\Customer\Controllers\" />
-    <Folder Include="Areas\Customer\Models\" />
     <Folder Include="Areas\Customer\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>

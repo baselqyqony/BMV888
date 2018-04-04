@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Bee_Project.Areas.ServiceProvider.Models.VModel.VServiceItem>
 
 @{
-    ViewBag.Title = "ListServices";
+    ViewBag.Title = "Service Lists";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>ListServices</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateService")
 </p>
 <table class="table">
     <tr>
@@ -37,8 +37,8 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Details", "ServiceDetail", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "deleteService", new { id = item.ID }, new { onclick = "return confirm('Are you sure you wish to delete this article?');" })
         </td>
     </tr>
 }
