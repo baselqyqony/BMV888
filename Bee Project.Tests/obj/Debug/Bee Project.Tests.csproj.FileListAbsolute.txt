@@ -1,0 +1,48 @@
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Bee Project.Tests.dll.config
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Bee Project.Tests.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Bee Project.Tests.pdb
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Bee Project.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Newtonsoft.Json.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.Helpers.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.Mvc.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.Razor.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.WebPages.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\EntityFramework.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.Optimization.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Microsoft.Owin.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Owin.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.Http.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Microsoft.Owin.Security.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.Http.WebHost.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Net.Http.Formatting.dll
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Bee Project.pdb
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Newtonsoft.Json.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.Helpers.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.Mvc.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.Razor.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.WebPages.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\EntityFramework.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.Optimization.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Microsoft.Owin.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.Http.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Microsoft.Owin.Security.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Web.Http.WebHost.xml
+E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Net.Http.Formatting.xml
+E:\software techonology\BMV888\Bee Project.Tests\obj\Debug\Bee Project.Tests.csprojResolveAssemblyReference.cache
+E:\software techonology\BMV888\Bee Project.Tests\obj\Debug\Bee Project.Tests.dll
+E:\software techonology\BMV888\Bee Project.Tests\obj\Debug\Bee Project.Tests.pdb

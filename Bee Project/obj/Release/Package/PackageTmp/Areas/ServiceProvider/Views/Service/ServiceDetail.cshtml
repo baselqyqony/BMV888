@@ -1,0 +1,71 @@
+﻿@model Bee_Project.Areas.ServiceProvider.Models.VModel.VServiceItem
+
+@{
+    ViewBag.Title = "ServiceDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ServiceDetail</h2>
+
+<div>
+    <h4>VServiceItem</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.serviceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serviceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.serviceMetaData)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serviceMetaData)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.serviceCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serviceCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.serviceCountry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serviceCountry)
+        </dd>
+
+       
+
+     
+
+        <dt>
+            @Html.DisplayNameFor(model => model.serviceDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serviceDetails)
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")
+</p>
