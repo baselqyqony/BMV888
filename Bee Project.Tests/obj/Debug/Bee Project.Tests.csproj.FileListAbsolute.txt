@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Bee Project.Tests.dll.config
 E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Bee Project.Tests.dll
 E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\Bee Project.Tests.pdb
@@ -47,53 +46,3 @@ E:\software techonology\BMV888\Bee Project.Tests\bin\Debug\System.Net.Http.Forma
 E:\software techonology\BMV888\Bee Project.Tests\obj\Debug\Bee Project.Tests.csprojResolveAssemblyReference.cache
 E:\software techonology\BMV888\Bee Project.Tests\obj\Debug\Bee Project.Tests.dll
 E:\software techonology\BMV888\Bee Project.Tests\obj\Debug\Bee Project.Tests.pdb
-=======
-C:\bmv888\Bee Project.Tests\bin\Debug\Bee Project.Tests.dll.config
-C:\bmv888\Bee Project.Tests\bin\Debug\Bee Project.Tests.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\Bee Project.Tests.pdb
-C:\bmv888\Bee Project.Tests\bin\Debug\Bee Project.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\Newtonsoft.Json.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.Helpers.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.Mvc.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.Razor.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.WebPages.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.WebPages.Razor.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\EntityFramework.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.Optimization.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\Microsoft.Owin.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\Owin.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.Http.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\Microsoft.Owin.Security.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.Http.WebHost.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Net.Http.Formatting.dll
-C:\bmv888\Bee Project.Tests\bin\Debug\Bee Project.pdb
-C:\bmv888\Bee Project.Tests\bin\Debug\Newtonsoft.Json.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.Helpers.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.Mvc.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.Razor.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.WebPages.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.WebPages.Razor.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\EntityFramework.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.Optimization.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\Microsoft.Owin.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.Http.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\Microsoft.Owin.Security.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Web.Http.WebHost.xml
-C:\bmv888\Bee Project.Tests\bin\Debug\System.Net.Http.Formatting.xml
-C:\bmv888\Bee Project.Tests\obj\Debug\Bee Project.Tests.csprojResolveAssemblyReference.cache
-C:\bmv888\Bee Project.Tests\obj\Debug\Bee Project.Tests.dll
-C:\bmv888\Bee Project.Tests\obj\Debug\Bee Project.Tests.pdb
->>>>>>> d0c7189c78e978e076c79645f457d3dcc468626c
