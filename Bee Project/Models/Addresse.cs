@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -10,13 +11,14 @@ namespace Bee_Project.Models
     {
         [Required]
         public int ID { get; set; }
-
+        [Display(Name = "Country")]
         [Required]
         public int CountryID { get; set; }
-
-       [Required]
+       
+        [Display(Name="City")]
+        [Required]
         public int CityID { get; set; }
-
+    
 
         public string Ditricit { get; set; }
 

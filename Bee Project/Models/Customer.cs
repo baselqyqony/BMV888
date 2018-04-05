@@ -14,8 +14,14 @@ namespace Bee_Project.Models
         [Required]
         public string UserID { get; set; }
 
-    
-        [Range(10,100)]
+        [Required]
+        public string UserName { get; set; }
+
+        public string PhoneNumber { get; set; }
+
+        public int AddressesID { get; set; }
+            
+        [Range(0,100)]
         public int Age { get; set; }
     }
 }

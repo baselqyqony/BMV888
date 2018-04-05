@@ -1,4 +1,6 @@
-﻿@model Bee_Project.Areas.ServiceProvider.Models.VModel.VService
+﻿
+
+@model Bee_Project.Areas.ServiceProvider.Models.VModel.VService
 
 @{
     ViewBag.Title = "CreateService";
@@ -35,7 +37,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Countries, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(x => x.selectedCountries, Model.Countries, "select City")
+                @Html.DropDownListFor(x => x.selectedCountries, Model.Countries, "select Country")
                 @Html.ValidationMessageFor(model => model.Countries)
             </div>
         </div>
@@ -44,7 +46,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ServiceTypes, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-               @Html.DropDownListFor(x => x.selectedServiceTypes, Model.ServiceTypes, "select City")
+               @Html.DropDownListFor(x => x.selectedServiceTypes, Model.ServiceTypes, "select Service Type")
                 @Html.ValidationMessageFor(model => model.ServiceTypes)
             </div>
         </div>
@@ -98,7 +100,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.longitude, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.longitude, new { @class = "control-label col-md-2", @id = "long" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.longitude)
                 @Html.ValidationMessageFor(model => model.longitude)
@@ -106,7 +108,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.altitude, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.altitude , new { @class = "control-label col-md-2" ,@id="lat"})
             <div class="col-md-10">
                 @Html.EditorFor(model => model.altitude)
                 @Html.ValidationMessageFor(model => model.altitude)
@@ -143,3 +145,31 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+
+<script type="text/javascript">
+
+   
+    var x = document.getElementById("altitude");
+    
+    var y = document.getElementById("longitude");
+  
+
+    getLocation();
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.value = "0.0";
+            y.value = "0.0";
+        }
+    }
+
+    function showPosition(position) {
+        x.value = "" + position.coords.latitude;
+        y.value = "" + position.coords.longitude;
+
+     
+    }
+</script>
+ 

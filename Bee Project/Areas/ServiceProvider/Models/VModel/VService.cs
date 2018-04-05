@@ -10,8 +10,8 @@ namespace Bee_Project.Areas.ServiceProvider.Models.VModel
 {
     public class VService
     {
-
-
+        
+        public int ID { set; get; }
         public string Name { set; get; }
         
         

@@ -14,9 +14,6 @@ namespace Bee_Project
             ConfigureAuth(app);
             createRolesandUsers();
         }
-
-
-
         // In this method we will create default User roles and Admin user for login   
         private void createRolesandUsers()
         {
@@ -24,31 +21,26 @@ namespace Bee_Project
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             var UserManager = new UserManager<Bee_Project.Models.ApplicationUser>(new UserStore<ApplicationUser>(context));
-
-
             // In Startup iam creating first Admin Role and creating a default Admin User    
             if (!roleManager.RoleExists("Admin"))
             {
-
                 // first we create Admin rool   
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
                 role.Name = "Admin";
+
                 roleManager.Create(role);
 
                 //Here we create a Admin super user who will maintain the website                  
-
+                
                 var user = new ApplicationUser();
                 user.UserName = "shanu";
                 user.Email = "syedshanumcain@gmail.com";
-
                 string userPWD = "A@Z200711";
-
                 var chkUser = UserManager.Create(user, userPWD);
-
                 //Add default User to Role Admin   
                 if (chkUser.Succeeded)
                 {
-                    var result1 = UserManager.AddToRole(user.Id, "Admin");
+                  var result1 = UserManager.AddToRole(user.Id, "Admin");
 
                 }
             }
@@ -59,19 +51,14 @@ namespace Bee_Project
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
                 role.Name = "ServiceProvider";
                 roleManager.Create(role);
-
             }
-
             // creating Creating Employee role    
             if (!roleManager.RoleExists("Customer"))
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
                 role.Name = "Customer";
                 roleManager.Create(role);
-
             }
         } 
-
-
     }
 }
