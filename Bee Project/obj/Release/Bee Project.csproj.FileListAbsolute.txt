@@ -61,3 +61,5 @@ E:\software techonology\BMV888\Bee Project\obj\Release\Bee_Project.Migrations.ne
 E:\software techonology\BMV888\Bee Project\obj\Release\Bee Project.csproj.GenerateResource.Cache
 E:\software techonology\BMV888\Bee Project\obj\Release\Bee Project.dll
 E:\software techonology\BMV888\Bee Project\obj\Release\Bee Project.pdb
+E:\software techonology\BMV888\Bee Project\bin\Antlr3.Runtime.pdb
+E:\software techonology\BMV888\Bee Project\obj\Release\Bee Project.csprojResolveAssemblyReference.cache

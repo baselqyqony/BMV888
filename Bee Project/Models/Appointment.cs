@@ -13,20 +13,36 @@ namespace Bee_Project.Models
 
         [Required]
         [DataType(DataType.Date)]
-        public DateTime Date { get; set; }
+        public DateTime StartDate { get; set; }
 
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime EndDate { get; set; }
 
         [Required]
         [DataType(DataType.Time)]
-        public DateTime Time { get; set; }
+        public DateTime StartTime { get; set; }
 
         [Required]
-        public  bool IsAvailable { get; set; }
+        [DataType(DataType.Time)]
+        public DateTime EndTime { get; set; }
+
+        [Required]
+        public bool IsAvailable { get; set; }
+
+        [Required]
+        public bool IsBooked { get; set; }
+
+        [Required]
+        public bool IsCancelled { get; set; }
+
+        [Required]
+        public bool IsPostponed { get; set; }
 
         public int UserID { get; set; }
 
         [Required]
-        public int ServiceID{ get; set; }
+        public int ServiceID { get; set; }
 
 
     }
