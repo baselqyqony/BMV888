@@ -155,24 +155,12 @@ $RECYCLE.BIN/
 # Mac desktop service store files
 .DS_Store
 
-Bee Project/App_Data/aspnet-Bee Project-20180310025604.mdf
-Bee Project/App_Data/aspnet-Bee Project-20180310025604_log.ldf
-Bee Project/App_Data/aspnet-Bee Project-20180310025604_log.ldf
-Bee Project/App_Data/aspnet-Bee Project-20180310025604.mdf
-Bee Project/App_Data/aspnet-Bee Project-20180310025604_log.ldf
 dbo.Addresses.sql
-Bee Project/App_Data/aspnet-Bee Project-20180310025604_log.ldf
-Bee Project/App_Data/aspnet-Bee Project-20180310025604.mdf
+
 *.mdf
 *.ldf
-Bee Project/App_Data/aspnet-Bee Project-20180310025604_log.ldf
-Bee Project/App_Data/aspnet-Bee Project-20180310025604.mdf
-Bee Project/App_Data/App_Data.zip
+
+*.zip
 *.mdf
 *.ldf
-Bee Project/App_Data/aspnet-Bee Project-20180310025604.mdf
-Bee Project/App_Data/aspnet-Bee Project-20180310025604_log.ldf
-Bee Project/App_Data/aspnet-Bee Project-20180310025604.mdf
-Bee Project/App_Data/aspnet-Bee Project-20180310025604_log.ldf
-Bee Project/bin/Bee Project.dll
 *.dll
