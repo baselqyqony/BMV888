@@ -164,3 +164,6 @@ dbo.Addresses.sql
 *.mdf
 *.ldf
 *.dll
+Bee Project.Tests/bin/Debug/Bee Project.dll
+Bee Project.Tests\bin\Debug*/
+Bee Project.Tests/bin/Debug/Bee Project.dll
