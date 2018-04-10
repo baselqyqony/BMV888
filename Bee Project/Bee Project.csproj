@@ -201,6 +201,10 @@
     <Compile Include="Migrations\201804032156587_newmerrage.Designer.cs">
       <DependentUpon>201804032156587_newmerrage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804071223526_updataAppointmentModel.cs" />
+    <Compile Include="Migrations\201804071223526_updataAppointmentModel.Designer.cs">
+      <DependentUpon>201804071223526_updataAppointmentModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresse.cs" />
@@ -259,6 +263,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\staticLocation.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -316,12 +321,16 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803102012291_InitialCreate.resx">
       <DependentUpon>201803102012291_InitialCreate.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803102050247_seedusers.resx">
       <DependentUpon>201803102050247_seedusers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804032156587_newmerrage.resx">
       <DependentUpon>201804032156587_newmerrage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804071223526_updataAppointmentModel.resx">
+      <DependentUpon>201804071223526_updataAppointmentModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

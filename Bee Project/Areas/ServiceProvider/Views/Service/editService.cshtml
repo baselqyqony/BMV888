@@ -140,28 +140,5 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-<script type="text/javascript">
-
-
-    var x = document.getElementById("altitude");
-
-    var y = document.getElementById("longitude");
-
-
-    getLocation();
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            x.value = "0.0";
-            y.value = "0.0";
-        }
-    }
-
-    function showPosition(position) {
-        x.value = "" + position.coords.latitude;
-        y.value = "" + position.coords.longitude;
-
-     
-    }
-</script>
+<script src="~/Scripts/staticLocation.js"></script>
+<script> setLocation('altitude', 'longitude') </script>
