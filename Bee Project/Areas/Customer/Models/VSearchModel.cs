@@ -22,9 +22,7 @@ namespace Bee_Project.Areas.Customer.Models
         public string metaDatas{set;get;}
         public string longitude { set; get; }
         public string altitude { set; get; }
-        public VSearchModel()
-        {
-            ApplicationDbContext dbContext = new ApplicationDbContext();
-        }
+        public bool isNearBy { set; get; }
+       
    }
 }

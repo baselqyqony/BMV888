@@ -205,6 +205,10 @@
     <Compile Include="Migrations\201804071223526_updataAppointmentModel.Designer.cs">
       <DependentUpon>201804071223526_updataAppointmentModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804101716435_addSerachLogTable.cs" />
+    <Compile Include="Migrations\201804101716435_addSerachLogTable.Designer.cs">
+      <DependentUpon>201804101716435_addSerachLogTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresse.cs" />
@@ -217,6 +221,8 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MetaData.cs" />
+    <Compile Include="Models\SearchLogs.cs" />
+    <Compile Include="Models\SearchMetaDatas.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\ServiceMetaDatas.cs" />
     <Compile Include="Models\serviceProvider.cs" />
@@ -331,6 +337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804071223526_updataAppointmentModel.resx">
       <DependentUpon>201804071223526_updataAppointmentModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804101716435_addSerachLogTable.resx">
+      <DependentUpon>201804101716435_addSerachLogTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
