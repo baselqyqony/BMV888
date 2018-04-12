@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBEeTyHe5sP7At3JksRZjp4BDvCnKFC2Y&callback=initMap"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -23,7 +25,6 @@
                     <li>@Html.ActionLink("UserProfile", "profile", "ServiceProvider")</li>
                     <li>@Html.ActionLink("CompanyProfile", "About", "Home")</li>
                     <li>@Html.ActionLink("Services", "ListServices", "Service")</li>
-
                 </ul>
             </div>
         </div>
