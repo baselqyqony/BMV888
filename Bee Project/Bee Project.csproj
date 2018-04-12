@@ -258,6 +258,7 @@
     <Content Include="Areas\ServiceProvider\Views\Service\deleteService.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\Service\editService.cshtml" />
     <Content Include="Areas\Customer\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Customer\Views\Search\ViewSearchResult.cshtml" />
     <None Include="Properties\PublishProfiles\prf1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

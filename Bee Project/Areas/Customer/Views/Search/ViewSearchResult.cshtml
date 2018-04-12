@@ -1,0 +1,51 @@
+﻿@model Bee_Project.Areas.Customer.Models.VSearchModel
+
+@{
+    ViewBag.Title = "ViewSearchResult";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ViewSearchResult</h2>
+
+<div>
+    <h4>VSearchModel</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.metaDatas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.metaDatas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.longitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.altitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.altitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isNearBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isNearBy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

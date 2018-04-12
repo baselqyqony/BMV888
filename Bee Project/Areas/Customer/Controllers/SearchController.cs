@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using Microsoft.AspNet.Identity;
+using System.Data.Entity;
 namespace Bee_Project.Areas.Customer.Controllers
 {
     
@@ -67,5 +68,46 @@ namespace Bee_Project.Areas.Customer.Controllers
             VSM.ServiceTypes = serviceTypes;
             return View(VSM);
         }
+
+        [HttpPost]
+
+        public ActionResult search(VSearchModel VSM)
+        {
+           
+            string  userId =User.Identity.GetUserId();
+            SearchLogs SL = new SearchLogs();
+            SL.altitude = VSM.altitude;
+            SL.isNearBy = VSM.isNearBy;
+            SL.longitude = VSM.longitude;
+
+            List<string> addedMetaData=VSM.metaDatas.Split(' ').ToList();
+            List<MetaData> MD = dbContext.MetaData.Where(x => addedMetaData.Contains(x.Name.ToUpper())).ToList();
+            SL.selectedCity = VSM.selectedCity;
+            SL.selectedCountry = VSM.selectedCountry;
+            SL.serviceTypes = VSM.selectedServiceType;
+            SL.userID = userId;
+           SearchLogs savedSL=  dbContext.SearchLogs.Add(SL);
+           dbContext.SaveChanges();
+
+           foreach (MetaData M in MD)
+           {
+               SearchMetaDatas s = new SearchMetaDatas();
+               s.MetaDataID = M.ID;
+               s.SearchLogsID = savedSL.ID;
+               dbContext.SearchMetaDatas.Add(s);
+               dbContext.SaveChanges();
+           }
+
+           return RedirectToAction("ViewSearchResult", VSM);
+            
+        }
+
+        [HttpGet]
+        public ActionResult ViewSearchResult(VSearchModel VSM)
+        {
+            return View();
+        }
+
+
 	}
 }
