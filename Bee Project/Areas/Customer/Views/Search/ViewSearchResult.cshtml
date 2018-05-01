@@ -1,4 +1,4 @@
-﻿@model Bee_Project.Areas.Customer.Models.VSearchModel
+﻿@model IEnumerable<Bee_Project.Models.Service>
 
 @{
     ViewBag.Title = "ViewSearchResult";
@@ -7,45 +7,52 @@
 
 <h2>ViewSearchResult</h2>
 
-<div>
-    <h4>VSearchModel</h4>
-	<hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.metaDatas)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.metaDatas)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.longitude)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.longitude)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.altitude)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.altitude)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.isNearBy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.isNearBy)
-        </dd>
-
-    </dl>
-</div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Create New", "Create")
 </p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdressesID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceTypeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceProviderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.serviceInfo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdressesID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceTypeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceProviderID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.serviceInfo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

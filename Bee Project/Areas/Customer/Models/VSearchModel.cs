@@ -11,6 +11,7 @@ namespace Bee_Project.Areas.Customer.Models
 {
     public class VSearchModel
     {
+        public int ID { set; get; }
         [ScaffoldColumn(false)]
         public int selectedServiceType { set; get; }
         public List<SelectListItem> ServiceTypes { set; get; }
@@ -22,6 +23,7 @@ namespace Bee_Project.Areas.Customer.Models
         public List<SelectListItem> Countries { set; get; }
         [DataType(DataType.MultilineText)]
         [DisplayName("Search")]
+        [Required]
         public string metaDatas{set;get;}
         public string longitude { set; get; }
         public string altitude { set; get; }
