@@ -231,25 +231,28 @@ namespace Bee_Project.Areas.Customer.Controllers
 
 
 
-
-                   string[] searchMetaData = VSM.metaDatas.Split(' ');
-
-                   foreach (string s in searchMetaData)
+                   if (VSM.metaDatas != null)
                    {
-                       foreach (MetaData md in serviceMetaDatas[goalServices[i]])
+                       string[] searchMetaData = VSM.metaDatas.Split(' ');
+
+                       foreach (string s in searchMetaData)
                        {
-                           if (md.Name.ToUpper().Contains(s.ToUpper()) || s.ToUpper().Contains(md.Name.ToUpper()))
+                           foreach (MetaData md in serviceMetaDatas[goalServices[i]])
                            {
-                               filterResult = filterResult || true;
-                               results.Add(services[goalServices[i]]);
-                               continue;
+                               if (md.Name.ToUpper().Contains(s.ToUpper()) || s.ToUpper().Contains(md.Name.ToUpper()))
+                               {
+                                   filterResult = filterResult || true;
+                                   results.Add(services[goalServices[i]]);
+                                   continue;
+                               }
+
                            }
 
+
+
                        }
-
-
                    }
-                   if (filterResult)
+                   if (filterResult || VSM.isNearBy)
                        results.Add(services[goalServices[i]]);
                }
         
