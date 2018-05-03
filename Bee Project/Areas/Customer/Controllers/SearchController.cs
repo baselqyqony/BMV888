@@ -19,6 +19,8 @@ namespace Bee_Project.Areas.Customer.Controllers
         private ApplicationDbContext dbContext;
 
         public SearchController() { dbContext = new ApplicationDbContext(); }
+
+        
         //
         // GET: /Customer/Search/
         [HttpGet]
@@ -26,6 +28,7 @@ namespace Bee_Project.Areas.Customer.Controllers
         {
 
             VSearchModel VSM = new VSearchModel();
+            List<VSearchResult> VSR = new List<VSearchResult>();
             List<SelectListItem> cts = new List<SelectListItem>();
             foreach (City c in dbContext.Cities.ToList<City>())
             {
@@ -70,6 +73,7 @@ namespace Bee_Project.Areas.Customer.Controllers
             return View(VSM);
         }
 
+        
         [HttpPost]
 
         public ActionResult search(VSearchModel VSM)
@@ -111,157 +115,178 @@ namespace Bee_Project.Areas.Customer.Controllers
 
         [HttpGet]
         public ActionResult ViewSearchResult()
-        { 
-            List<Service> results = new List<Service>();
-            //data
-            List<Service> services= new List<Service>();
-            List<Addresse> addresses=new List<Addresse>();
-            List<Country> countries=dbContext.Countrys.ToList();
-            List<City> cities=dbContext.Cities.ToList();
-            List<ServiceType> types = dbContext.ServiceTypes.ToList();
-            List<List<MetaData>> serviceMetaDatas=new List<List<MetaData>>();
-
-            List<int> goalServices = new List<int>();
-            VSearchModel VSM = (VSearchModel) TempData["VSM"];
-
-            dbContext = new ApplicationDbContext();
-            //filling data
-           List<Service> allServices= dbContext.Services.ToList();
-           foreach (Service ss in allServices)
+        {
+            try
             {
-                Service s = dbContext.Services.Where(x => x.ID == ss.ID).First();
-                services.Add(s);
-                List<int> SmetaDataIDS= s.ServiceMetaDatas.Select(x=>x.metaDataID).ToList();
-                Addresse a = dbContext.Addresses.Where(x => x.ID == s.AdressesID).First();
-                addresses.Add(a);
-                 List<MetaData> sMetaMatas = new List<MetaData>();
-                 sMetaMatas = dbContext.MetaData.Where(x => SmetaDataIDS.Contains(x.ID)).ToList();
-                 serviceMetaDatas.Add(sMetaMatas);
-                 City c = dbContext.Cities.Where(x=>x.ID == a.CityID).First();
-                cities.Add(c);
-                Country country=dbContext.Countrys.Where(x=>x.ID == a.CountryID).First();
-               ServiceType st = dbContext.ServiceTypes.Where(x=>x.ID == s.ServiceTypeID).First();
-                types.Add(st);
+                List<Service> results = new List<Service>();
+                //data
+                List<Service> services = new List<Service>();
+                List<Addresse> addresses = new List<Addresse>();
+                List<Country> countries = dbContext.Countrys.ToList();
+                List<City> cities = dbContext.Cities.ToList();
+                List<ServiceType> types = dbContext.ServiceTypes.ToList();
+                List<List<MetaData>> serviceMetaDatas = new List<List<MetaData>>();
 
-            }
+                List<int> goalServices = new List<int>();
+                VSearchModel VSM = (VSearchModel)TempData["VSM"];
 
-            if (VSM.isNearBy)
-            {
-                for (int i = 0; i < services.Count; i++)
+                dbContext = new ApplicationDbContext();
+                //filling data
+                List<Service> allServices = dbContext.Services.ToList();
+                List<VSearchResult> allsearchResults = new List<VSearchResult>();
+                List<VSearchResult> goalSearchResults = new List<VSearchResult>();
+                foreach (Service ss in allServices)
                 {
-                    GeoCoordinate serviceLocation = new GeoCoordinate(Double.Parse(addresses[i].ultitude), Double.Parse(addresses[i].longitude));
-                    GeoCoordinate userLocation = new GeoCoordinate(Double.Parse(VSM.altitude), Double.Parse(VSM.longitude));
-                    Double Distance = serviceLocation.GetDistanceTo(userLocation);
+                    Service s = dbContext.Services.Where(x => x.ID == ss.ID).First();
+                    services.Add(s);
+                    List<int> SmetaDataIDS = s.ServiceMetaDatas.Select(x => x.metaDataID).ToList();
+                    Addresse a = dbContext.Addresses.Where(x => x.ID == s.AdressesID).First();
+                    addresses.Add(a);
+                    List<MetaData> sMetaMatas = new List<MetaData>();
+                    sMetaMatas = dbContext.MetaData.Where(x => SmetaDataIDS.Contains(x.ID)).ToList();
+                    serviceMetaDatas.Add(sMetaMatas);
+                    City c = dbContext.Cities.Where(x => x.ID == a.CityID).First();
+                    cities.Add(c);
+                    Country country = dbContext.Countrys.Where(x => x.ID == a.CountryID).First();
+                    ServiceType st = dbContext.ServiceTypes.Where(x => x.ID == s.ServiceTypeID).First();
+                    types.Add(st);
+                    allsearchResults.Add(new VSearchResult(s, c, country, st.Name, sMetaMatas, ""));
 
-                    if (Distance <= 50000)
+
+                }
+
+
+
+                if (VSM.isNearBy)
+                {
+                    for (int i = 0; i < services.Count; i++)
                     {
+                        GeoCoordinate serviceLocation = new GeoCoordinate(Double.Parse(addresses[i].ultitude), Double.Parse(addresses[i].longitude));
+                        GeoCoordinate userLocation = new GeoCoordinate(Double.Parse(VSM.altitude), Double.Parse(VSM.longitude));
+                        Double Distance = serviceLocation.GetDistanceTo(userLocation);
+                        allsearchResults[i].distance = Distance + "";
+                        if (Distance <= 50000)
+                        {
+                            goalServices.Add(i);
+                        }
+
+                    }
+                }
+                else
+                {
+
+                    for (int i = 0; i < services.Count; i++)
+                    {
+                        GeoCoordinate serviceLocation = new GeoCoordinate(Double.Parse(addresses[i].ultitude), Double.Parse(addresses[i].longitude));
+                        GeoCoordinate userLocation = new GeoCoordinate(Double.Parse(VSM.altitude), Double.Parse(VSM.longitude));
+                        Double Distance = serviceLocation.GetDistanceTo(userLocation);
+                        allsearchResults[i].distance = Distance + "";
                         goalServices.Add(i);
                     }
-
                 }
-            }
-            else {
 
-                for (int i = 0; i < services.Count; i++)
+
+                //apply other factors on search 
+                List<int> tempGoalServices = new List<int>();
+                for (int i = 0; i < goalServices.Count; i++)
                 {
-                    goalServices.Add(i);
+
+                    Boolean filterResult = false;
+                    //check city 
+                    if (VSM.selectedCity != -1)
+                    {
+
+                        if (cities[goalServices[i]].ID == VSM.selectedCity)
+                        {
+                            filterResult = filterResult || true;
+                            results.Add(services[goalServices[i]]);
+                            goalSearchResults.Add(allsearchResults[goalServices[i]]);
+                            continue;
+                        }
+                        else
+                        {
+                            filterResult = filterResult || false;
+
+                        }
+
+                    }
+                    //check countries
+                    if (VSM.selectedCountry != -1)
+                    {
+
+                        if (countries[goalServices[i]].ID == VSM.selectedCountry)
+                        {
+                            filterResult = filterResult || true;
+                            results.Add(services[goalServices[i]]);
+                            goalSearchResults.Add(allsearchResults[goalServices[i]]);
+                            continue;
+                        }
+                        else
+                        {
+                            filterResult = filterResult || false;
+
+                        }
+
+                    }
+                    // check service type
+                    if (VSM.selectedServiceType != -1)
+                    {
+
+                        if (types[goalServices[i]].ID == VSM.selectedServiceType)
+                        {
+                            filterResult = filterResult || true;
+                            results.Add(services[goalServices[i]]);
+                            goalSearchResults.Add(allsearchResults[goalServices[i]]);
+                            continue;
+                        }
+                        else
+                        {
+                            filterResult = filterResult || false;
+
+                        }
+
+                    }
+
+                    //check service  metaData 
+
+
+
+                    if (VSM.metaDatas != null)
+                    {
+                        string[] searchMetaData = VSM.metaDatas.Split(' ');
+
+                        foreach (string s in searchMetaData)
+                        {
+                            foreach (MetaData md in serviceMetaDatas[goalServices[i]])
+                            {
+                                if (md.Name.ToUpper().Contains(s.ToUpper()) || s.ToUpper().Contains(md.Name.ToUpper()))
+                                {
+                                    filterResult = filterResult || true;
+                                    results.Add(services[goalServices[i]]);
+                                    goalSearchResults.Add(allsearchResults[goalServices[i]]);
+                                    continue;
+                                }
+
+                            }
+
+
+
+                        }
+                    }
+                    if (filterResult || VSM.isNearBy)
+                    {
+                        results.Add(services[goalServices[i]]);
+                        goalSearchResults.Add(allsearchResults[goalServices[i]]);
+                    }
                 }
+
+
+
+
+
+                return View(goalSearchResults);
             }
-
-
-            //apply other factors on search 
-            List<int> tempGoalServices = new List<int>();
-            for (int i = 0; i < goalServices.Count; i++)
-            {
-               
-               Boolean filterResult = false;
-                //check city 
-               if (VSM.selectedCity != -1)
-               {
-
-                   if (cities[goalServices[i]].ID == VSM.selectedCity)
-                   {
-                       filterResult = filterResult || true;
-                       results.Add(services[goalServices[i]]);
-                       continue;
-                   }
-                   else
-                   {
-                       filterResult = filterResult || false;
-
-                   }
-
-               }
-                   //check countries
-                   if (VSM.selectedCountry != -1)
-                   {
-
-                       if (countries[goalServices[i]].ID == VSM.selectedCountry)
-                       {
-                           filterResult = filterResult || true;
-                           results.Add(services[goalServices[i]]);
-                           continue;
-                       }
-                       else
-                       {
-                           filterResult = filterResult || false;
-
-                       }
-
-                   }
-                   // check service type
-                   if (VSM.selectedServiceType != -1)
-                   {
-
-                       if (types[goalServices[i]].ID == VSM.selectedServiceType)
-                       {
-                           filterResult = filterResult || true;
-                           results.Add(services[goalServices[i]]);
-                           continue;
-                       }
-                       else
-                       {
-                           filterResult = filterResult || false;
-
-                       }
-
-                   }
-
-                   //check service  metaData 
-
-
-
-                   if (VSM.metaDatas != null)
-                   {
-                       string[] searchMetaData = VSM.metaDatas.Split(' ');
-
-                       foreach (string s in searchMetaData)
-                       {
-                           foreach (MetaData md in serviceMetaDatas[goalServices[i]])
-                           {
-                               if (md.Name.ToUpper().Contains(s.ToUpper()) || s.ToUpper().Contains(md.Name.ToUpper()))
-                               {
-                                   filterResult = filterResult || true;
-                                   results.Add(services[goalServices[i]]);
-                                   continue;
-                               }
-
-                           }
-
-
-
-                       }
-                   }
-                   if (filterResult || VSM.isNearBy)
-                       results.Add(services[goalServices[i]]);
-               }
-        
-
-               
-                
-
-             return View (results);
-
+            catch (Exception ex) {  return Redirect(Url.Content("~/Customer/Search/search")); }
 
             }
 

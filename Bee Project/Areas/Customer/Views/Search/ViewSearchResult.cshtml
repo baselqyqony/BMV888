@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Bee_Project.Models.Service>
+﻿@model IEnumerable<Bee_Project.Areas.Customer.Models.VSearchResult>
 
 @{
     ViewBag.Title = "ViewSearchResult";
@@ -13,19 +13,22 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.ServiceType)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AdressesID)
+            @Html.DisplayNameFor(model => model.selectedCity)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ServiceTypeID)
+            @Html.DisplayNameFor(model => model.selectedCountry)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ServiceProviderID)
+            @Html.DisplayNameFor(model => model.metaDatas)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.serviceInfo)
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.distance)
         </th>
         <th></th>
     </tr>
@@ -33,24 +36,29 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AdressesID)
+            @Html.DisplayFor(modelItem => item.ServiceType)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ServiceTypeID)
+            @Html.DisplayFor(modelItem => item.selectedCity)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ServiceProviderID)
+            @Html.DisplayFor(modelItem => item.selectedCountry)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.serviceInfo)
+            @Html.DisplayFor(modelItem => item.metaDatas)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.distance)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Book", new { id=item.ID }) |
+           
         </td>
     </tr>
 }

@@ -177,6 +177,7 @@
     <Compile Include="Areas\Customer\Controllers\CustomerProfileController.cs" />
     <Compile Include="Areas\Customer\CustomerAreaRegistration.cs" />
     <Compile Include="Areas\Customer\Models\VModel\VMCustomer.cs" />
+    <Compile Include="Areas\Customer\Models\VSearchResult.cs" />
     <Compile Include="Areas\ServiceProvider\Controllers\AppointmentController.cs" />
     <Compile Include="Areas\ServiceProvider\Controllers\ServiceController.cs" />
     <Compile Include="Areas\ServiceProvider\Controllers\ServiceProviderController.cs" />
