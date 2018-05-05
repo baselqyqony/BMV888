@@ -7,6 +7,7 @@ var longInputName;
 var useInputsInitialValues;
 var centerOfMap;
 
+
 //Function called to initialize / create the map.
 //This is called when the page has loaded.
 
@@ -18,8 +19,12 @@ function initMap() {
     //The center location of our map.
     if (useInputsInitialValues)
         centerOfMap = new google.maps.LatLng(document.getElementById(latInputName).value, document.getElementById(longInputName).value);
-    else
-        centerOfMap = new google.maps.LatLng(47.52688647869142, 19.009681349993343);
+    else {
+        centerOfMap = new google.maps.LatLng(latInputName, longInputName);
+        
+
+       
+    }
 
     //Map options.
     var options = {
@@ -29,6 +34,14 @@ function initMap() {
 
     //Create the map object.
     map = new google.maps.Map(document.getElementById('map'), options);
+  
+    var marker2 = new google.maps.Marker({
+        position: centerOfMap,
+        map: map,
+        title: 'position'
+    });
+
+
 
     //Listen for any clicks on the map.
     google.maps.event.addListener(map, 'click', function (event) {
@@ -43,12 +56,14 @@ function initMap() {
                 draggable: true //make it draggable
             });
             //Listen for drag events!
+
             google.maps.event.addListener(marker, 'dragend', function (event) {
                 markerLocation();
             });
         } else {
             //Marker has already been added, so just change its location.
             marker.setPosition(clickedLocation);
+           
         }
         //Get the marker's location.
         markerLocation();

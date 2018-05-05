@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using System.Data.Entity;
 using System.Device.Location;
+using Bee_Project.Areas.ServiceProvider.Models.VModel;
 namespace Bee_Project.Areas.Customer.Controllers
 {
     
@@ -73,6 +74,31 @@ namespace Bee_Project.Areas.Customer.Controllers
             return View(VSM);
         }
 
+
+
+        public ActionResult details()
+        {
+            int ServiceID = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
+            Service s = dbContext.Services.Where(x => x.ID == ServiceID).First();
+            VServiceItem vs = new VServiceItem();
+            Addresse a = dbContext.Addresses.Where(x => x.ID == s.AdressesID).First();
+            ServiceType ST = dbContext.ServiceTypes.Where(x => x.ID == s.ServiceTypeID).First();
+            vs.ID = s.ID;
+            vs.serviceName = s.Name;
+            vs.ServiceType = ST.Name;
+            List<int> serviceMetaDataIDS = s.ServiceMetaDatas.Select(x => x.metaDataID).ToList<int>();
+            List<string> serviceMetaDatas = dbContext.MetaData.Where(x => serviceMetaDataIDS.Contains(x.ID)).Select(y => y.Name).ToList<string>();
+
+            vs.serviceMetaData = string.Join(",", serviceMetaDatas.ToArray());
+            vs.serviceCity = dbContext.Cities.Where(x => x.ID == a.CityID).First().Name;
+            vs.serviceCountry = dbContext.Countrys.Where(x => x.ID == a.CountryID).First().Name;
+            vs.serviceDetails = s.serviceInfo;
+
+            ViewBag.Altitude = a.ultitude;
+            ViewBag.longtude = a.longitude;
+
+            return View(vs);
+        }
         
         [HttpPost]
 
@@ -84,7 +110,6 @@ namespace Bee_Project.Areas.Customer.Controllers
             SL.altitude = VSM.altitude;
             SL.isNearBy = VSM.isNearBy;
             SL.longitude = VSM.longitude;
-
             List<string> addedMetaData=new List<string>();
 
             if(null!=VSM.metaDatas)

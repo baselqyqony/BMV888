@@ -1,0 +1,76 @@
+﻿@model Bee_Project.Areas.ServiceProvider.Models.VModel.VServiceItem
+
+@{
+    ViewBag.Title = "details";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+
+<h2>details</h2>
+
+<div>
+    <h4>VServiceItem</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.serviceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serviceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.serviceMetaData)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serviceMetaData)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.serviceCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serviceCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.serviceCountry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serviceCountry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.serviceDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serviceDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Appointments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Appointments)
+        </dd>
+
+    </dl>
+</div>
+<div id="map"></div>
+<script src="~/Scripts/staticLocation.js"></script>
+
+<script src="~/Scripts/mapsGUI.js"></script>
+<script type="text/javascript">startMapPlugin('@ViewBag.Altitude','@ViewBag.longtude', false)</script>
