@@ -17,13 +17,31 @@ function setInputsNames() {
 function initMap() {
 
     //The center location of our map.
-    if (useInputsInitialValues)
-        centerOfMap = new google.maps.LatLng(document.getElementById(latInputName).value, document.getElementById(longInputName).value);
+    if (useInputsInitialValues) {
+        var lattt = document.getElementById(latInputName).value;
+        var longgg = document.getElementById(longInputName).value;
+        if (lattt != "" && longgg != "")
+            centerOfMap = new google.maps.LatLng(latt, longgg);
+        else {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    lattt = position.coords.latitude;
+                    longgg = position.coords.longitude;
+                    document.getElementById(latInputName).value = lattt;
+                    document.getElementById(longInputName).value = longgg;
+
+                    centerOfMap = new google.maps.LatLng(lattt, longgg);
+                });
+            }
+
+
+        }
+    }
     else {
         centerOfMap = new google.maps.LatLng(latInputName, longInputName);
-        
 
-       
+
+
     }
 
     //Map options.

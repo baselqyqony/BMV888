@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Bee_Project.Models.Appointment>
+
+@{
+    ViewBag.Title = "ListAppointments";
+    Layout = "~/Areas/ServiceProvider/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListAppointments</h2>
+
+<p>
+    @Html.ActionLink("Appointments", "CreateAppointment", "Appointment", new { id = TempData["ID"] }, null)
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sun)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Thu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fri)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sun)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Wed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Thu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fri)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

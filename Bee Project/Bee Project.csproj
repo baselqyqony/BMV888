@@ -183,6 +183,7 @@
     <Compile Include="Areas\ServiceProvider\Controllers\ServiceProviderController.cs" />
     <Compile Include="Areas\ServiceProvider\Models\VModel\AddressesVM.cs" />
     <Compile Include="Areas\ServiceProvider\Models\VModel\UserVM.cs" />
+    <Compile Include="Areas\ServiceProvider\Models\VModel\VAppointment.cs" />
     <Compile Include="Areas\ServiceProvider\Models\VModel\VService.cs" />
     <Compile Include="Areas\ServiceProvider\Models\VModel\VServiceItem.cs" />
     <Compile Include="Areas\ServiceProvider\ServiceProviderAreaRegistration.cs" />
@@ -212,6 +213,22 @@
     <Compile Include="Migrations\201804101716435_addSerachLogTable.cs" />
     <Compile Include="Migrations\201804101716435_addSerachLogTable.Designer.cs">
       <DependentUpon>201804101716435_addSerachLogTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805052223245_update appointment model.cs" />
+    <Compile Include="Migrations\201805052223245_update appointment model.Designer.cs">
+      <DependentUpon>201805052223245_update appointment model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805081819189_updateAppointmentTable.cs" />
+    <Compile Include="Migrations\201805081819189_updateAppointmentTable.Designer.cs">
+      <DependentUpon>201805081819189_updateAppointmentTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805082204326_updateAppointment.cs" />
+    <Compile Include="Migrations\201805082204326_updateAppointment.Designer.cs">
+      <DependentUpon>201805082204326_updateAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805082227026_updateAppointment1.cs" />
+    <Compile Include="Migrations\201805082227026_updateAppointment1.Designer.cs">
+      <DependentUpon>201805082227026_updateAppointment1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -264,6 +281,8 @@
     <Content Include="Areas\Customer\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Customer\Views\Search\ViewSearchResult.cshtml" />
     <Content Include="Areas\Customer\Views\Search\details.cshtml" />
+    <Content Include="Areas\ServiceProvider\Views\Appointment\ListAppointments.cshtml" />
+    <Content Include="Areas\ServiceProvider\Views\Appointment\CreateAppointment.cshtml" />
     <None Include="Properties\PublishProfiles\prf1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -324,7 +343,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_Start\Service\" />
-    <Folder Include="Areas\ServiceProvider\Views\Appointment\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -349,6 +367,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804101716435_addSerachLogTable.resx">
       <DependentUpon>201804101716435_addSerachLogTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805052223245_update appointment model.resx">
+      <DependentUpon>201805052223245_update appointment model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805081819189_updateAppointmentTable.resx">
+      <DependentUpon>201805081819189_updateAppointmentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805082204326_updateAppointment.resx">
+      <DependentUpon>201805082204326_updateAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805082227026_updateAppointment1.resx">
+      <DependentUpon>201805082227026_updateAppointment1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
