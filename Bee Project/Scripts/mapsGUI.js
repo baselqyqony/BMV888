@@ -18,11 +18,8 @@ function initMap() {
 
     //The center location of our map.
     if (useInputsInitialValues) {
-        var lattt = document.getElementById(latInputName).value;
-        var longgg = document.getElementById(longInputName).value;
-        if (lattt != "" && longgg != "")
-            centerOfMap = new google.maps.LatLng(latt, longgg);
-        else {
+        var lattt;
+      
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     lattt = position.coords.latitude;
@@ -31,14 +28,17 @@ function initMap() {
                     document.getElementById(longInputName).value = longgg;
 
                     centerOfMap = new google.maps.LatLng(lattt, longgg);
+                    
+
                 });
             }
 
 
-        }
+        
     }
     else {
         centerOfMap = new google.maps.LatLng(latInputName, longInputName);
+        
 
 
 
@@ -51,7 +51,9 @@ function initMap() {
     };
 
     //Create the map object.
+    
     map = new google.maps.Map(document.getElementById('map'), options);
+    
   
     var marker2 = new google.maps.Marker({
         position: centerOfMap,
@@ -93,6 +95,7 @@ function startMapPlugin(lati, longi, UseInitialinpurValues) {
     latInputName = lati;
     longInputName = longi;
     google.maps.event.addDomListener(window, 'load', initMap);
+
 
 }
 //This function will get the marker's current location and then add the lat/long

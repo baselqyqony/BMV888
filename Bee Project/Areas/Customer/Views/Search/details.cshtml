@@ -8,7 +8,7 @@
 <h2>details</h2>
 
 <div>
-    <h4>VServiceItem</h4>
+    <h4></h4>
 	<hr />
     <dl class="dl-horizontal">
         <dt>
@@ -59,15 +59,91 @@
             @Html.DisplayFor(model => model.serviceDetails)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Appointments)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Appointments)
-        </dd>
-
     </dl>
+</div>
+
+<div>
+    <table class="table">
+        <tr>
+            
+            <th>
+                Start Time
+            </th>
+            <th>
+                End Time
+            </th>
+
+            <th>
+                Duration 
+            </th>
+            <th>
+                Sat
+            </th>
+            <th>
+               Sun
+            </th>
+            <th>
+                Mon
+            </th>
+            <th>
+                Tue
+            </th>
+            <th>
+                Wed
+            </th>
+            <th>
+                Thu
+            </th>
+            <th>
+                Fri
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.appointments)
+        {
+            <tr>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sun)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Wed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Thu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fri)
+                </td>
+                <td>
+                    @Html.ActionLink("Book", "BookAppointment", new { id = item.ID }) 
+                    
+                </td>
+            </tr>
+        }
+
+    </table>
+
 </div>
 <div id="map"></div>
 <script src="~/Scripts/staticLocation.js"></script>

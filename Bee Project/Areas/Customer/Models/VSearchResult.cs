@@ -44,6 +44,7 @@ namespace Bee_Project.Areas.Customer.Models
         public string distance { set; get; }
 
         
+        
       
     }
 }

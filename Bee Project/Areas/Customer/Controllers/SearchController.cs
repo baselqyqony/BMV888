@@ -74,10 +74,16 @@ namespace Bee_Project.Areas.Customer.Controllers
             return View(VSM);
         }
 
+        public ActionResult BookAppointment()
+        {
 
+            return View();
+        }
 
         public ActionResult details()
         {
+            
+
             int ServiceID = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
             Service s = dbContext.Services.Where(x => x.ID == ServiceID).First();
             VServiceItem vs = new VServiceItem();
@@ -97,6 +103,11 @@ namespace Bee_Project.Areas.Customer.Controllers
             ViewBag.Altitude = a.ultitude;
             ViewBag.longtude = a.longitude;
 
+            List<Appointment> appontments = new List<Appointment>();
+            appontments = dbContext.Appointments.Where(x => x.ServiceID == ServiceID).ToList();
+            vs.appointments = appontments;
+         
+            
             return View(vs);
         }
         

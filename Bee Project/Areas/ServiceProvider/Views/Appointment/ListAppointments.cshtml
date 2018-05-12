@@ -24,9 +24,7 @@
         <th>
             @Html.DisplayNameFor(model => model.EndTime)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ServiceID)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.Duration)
         </th>
@@ -68,9 +66,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.EndTime)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ServiceID)
-        </td>
+       
         <td>
             @Html.DisplayFor(modelItem => item.Duration)
         </td>
@@ -96,9 +92,8 @@
             @Html.DisplayFor(modelItem => item.Fri)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Edit", "EditAppointment", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "DeleteAppointment", new { id = item.ID }, new { onclick = "return confirm('Are you sure you wish to delete this article?');" })
         </td>
     </tr>
 }

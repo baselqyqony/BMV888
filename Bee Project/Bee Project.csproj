@@ -230,6 +230,10 @@
     <Compile Include="Migrations\201805082227026_updateAppointment1.Designer.cs">
       <DependentUpon>201805082227026_updateAppointment1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805121810400_addUserAppointmentModel.cs" />
+    <Compile Include="Migrations\201805121810400_addUserAppointmentModel.Designer.cs">
+      <DependentUpon>201805121810400_addUserAppointmentModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresse.cs" />
@@ -249,6 +253,7 @@
     <Compile Include="Models\serviceProvider.cs" />
     <Compile Include="Models\ServiceType.cs" />
     <Compile Include="Models\UserActivations.cs" />
+    <Compile Include="Models\UserAppointment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -283,6 +288,7 @@
     <Content Include="Areas\Customer\Views\Search\details.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\Appointment\ListAppointments.cshtml" />
     <Content Include="Areas\ServiceProvider\Views\Appointment\CreateAppointment.cshtml" />
+    <Content Include="Areas\ServiceProvider\Views\Appointment\EditAppointment.cshtml" />
     <None Include="Properties\PublishProfiles\prf1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -379,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805082227026_updateAppointment1.resx">
       <DependentUpon>201805082227026_updateAppointment1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805121810400_addUserAppointmentModel.resx">
+      <DependentUpon>201805121810400_addUserAppointmentModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

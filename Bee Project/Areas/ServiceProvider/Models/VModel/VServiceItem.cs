@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bee_Project.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,7 +18,8 @@ namespace Bee_Project.Areas.ServiceProvider.Models.VModel
 
         public string serviceDetails { get; set; }
 
-        public string Appointments { get; set; }
+        public  List<Appointment> appointments  { get; set; }
+
 
         
 
