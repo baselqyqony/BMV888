@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Bee_Project.Areas.Customer.Models.VUserAppointment>
+
+@{
+    ViewBag.Title = "ListUserAppointment";
+    Layout = "~/Areas/ServiceProvider/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListUserAppointment</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        
+        <th>
+            start Time
+        </th>
+        <th>
+            end Time
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Cancel
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppointmentService.Name);
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UAppointment.startTime);
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UAppointment.endTime);
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UAppointment.appointmentDate);
+        </td>
+        <td>
+            @Html.ActionLink("Cancel", "Cancel", new { id = item.UAppointment.ID })
+        </td>
+    </tr>
+}
+
+</table>

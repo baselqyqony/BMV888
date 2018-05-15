@@ -76,10 +76,101 @@ namespace Bee_Project.Areas.Customer.Controllers
 
         public ActionResult BookAppointment()
         {
+            int ServiceID = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
+            List<Appointment> appointments = dbContext.Appointments.Where(a => a.ServiceID == ServiceID &&  DateTime.Compare(DateTime.Now , a.EndDate) <0   &&  DateTime.Compare(DateTime.Now ,a.StartDate)>0).ToList();
 
-            return View();
+            List<UserAppointment> availableAppointment = dbContext.UserAppointment.Where(x => x.appointmentDate >= DateTime.Today && x.UserID == null).ToList();
+
+            var results = from c in availableAppointment
+                        group c by c.appointmentDate
+                            into userAppointments
+                              select new { appDate = userAppointments.Key, appoinments = userAppointments };
+            List<VAppointmentItem> appointmentsItems = new List<VAppointmentItem>();
+
+            foreach (var v in results)
+            {
+                VAppointmentItem VI= new VAppointmentItem();
+
+                VI.day = v.appDate.DayOfWeek.ToString();
+                VI.appointmentsDate = v.appDate;
+                VI.appointments = v.appoinments.ToList();
+                appointmentsItems.Add(VI);
+
+                
+            }
+
+
+            return View(appointmentsItems);
         }
 
+
+        public ActionResult BookUserAppointment()
+        {
+            string userId = User.Identity.GetUserId();
+            int UAID = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
+            UserAppointment UA = dbContext.UserAppointment.Where(x=>x.ID==UAID).First();
+
+            Appointment APP = dbContext.Appointments.Where(x => x.ID == UA.AppointmentID).First();
+           // get all service providers appointments
+            List<int> serviceAPPIDS = dbContext.Appointments.Where(x => x.ServiceID == APP.ServiceID).ToList().Select(x => x.ID).ToList();
+            List<UserAppointment> thisUserAppointments = dbContext.UserAppointment.Where(x => serviceAPPIDS.Contains(x.ID) && DateTime.Compare(DateTime.Now, x.appointmentDate) <= 0 && x.UserID == userId).ToList();
+       
+            //get all user appointment to get sure that hshe has no other one at on the same service
+            if(thisUserAppointments.Count>0)
+            {
+                //user cannot book same service again
+                return RedirectToAction("ListUserAppointment");
+            }
+            else
+            {
+                UA.UserID = userId;
+                return RedirectToAction("ListUserAppointment");
+            }
+           
+        }
+
+        public ActionResult Cancel()
+        {
+            int userAppointmentID = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
+            UserAppointment UA = dbContext.UserAppointment.Where(x => x.AppointmentID == userAppointmentID).First();
+            Appointment a = dbContext.Appointments.Where(x=>x.ID == UA.AppointmentID).First();
+            Service s = dbContext.Services.Where(x => x.ID == a.ServiceID).First();
+            userAppointmentLog UAL = new userAppointmentLog();
+            UAL.userID = UA.UserID;
+            UAL.startTime = UA.startTime;
+            UAL.ServiceID = s.ID;
+            UAL.canceled = true;
+            UAL.endTime = UA.endTime;
+            TimeSpan duration = UA.endTime.Subtract(UA.startTime);
+            UAL.duration = duration.TotalHours;
+            UAL.date = UA.appointmentDate;
+            UA.UserID = null;
+            dbContext.Entry(UA).State =EntityState.Modified;
+            dbContext.userAppointmentLog.Add(UAL);
+            dbContext.SaveChanges();
+            return RedirectToAction("ListUserAppointment");
+        }
+
+        public ActionResult ListUserAppointment()
+        {
+            string userId = User.Identity.GetUserId();
+            List<VUserAppointment> VUAppointments = new List<VUserAppointment>();
+            List<UserAppointment> userAppointments = dbContext.UserAppointment.Where(x => x.UserID == userId).ToList();
+            foreach (UserAppointment UA in userAppointments)
+            {
+                VUserAppointment VUA = new VUserAppointment();
+                VUA.UAppointment = UA;
+                VUA.userID = userId;
+
+
+                Appointment a = dbContext.Appointments.Where(x => x.ID == UA.AppointmentID).First();
+                Service s = dbContext.Services.Where(x => x.ID == a.ServiceID).First();
+                VUA.AppointmentService = s;
+                VUAppointments.Add(VUA);
+            }
+
+            return View(VUAppointments);
+        }
         public ActionResult details()
         {
             

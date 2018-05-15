@@ -20,7 +20,9 @@ namespace Bee_Project.Models
         [DataType(DataType.Date)]
         public DateTime appointmentDate { get; set; }
 
+        public int AppointmentID { get; set; }
 
+        public Boolean canceled { get; set; }
 
     }
 }

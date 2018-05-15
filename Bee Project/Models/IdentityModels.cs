@@ -45,6 +45,8 @@ namespace Bee_Project.Models
         public DbSet<SearchLogs> SearchLogs { get; set; }
 
         public DbSet<SearchMetaDatas> SearchMetaDatas { get; set; }
+        public DbSet<UserAppointment> UserAppointment { get; set; }
+        public DbSet<userAppointmentLog> userAppointmentLog { get; set; }
 
         public static ApplicationDbContext Create()
         {
