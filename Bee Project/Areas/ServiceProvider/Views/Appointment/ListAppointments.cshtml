@@ -5,10 +5,10 @@
     Layout = "~/Areas/ServiceProvider/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ListAppointments</h2>
+<h2>List Appointments Schedule</h2>
 
 <p>
-    @Html.ActionLink("Appointments", "CreateAppointment", "Appointment", new { id = TempData["ID"] }, null)
+    @Html.ActionLink("Add Appointment schedule Entry", "CreateAppointment", "Appointment", new { id = TempData["ID"] }, null)
 </p>
 <table class="table">
     <tr>
@@ -94,6 +94,7 @@
         <td>
             @Html.ActionLink("Edit", "EditAppointment", new { id = item.ID }) |
             @Html.ActionLink("Delete", "DeleteAppointment", new { id = item.ID }, new { onclick = "return confirm('Are you sure you wish to delete this article?');" })
+            
         </td>
     </tr>
 }

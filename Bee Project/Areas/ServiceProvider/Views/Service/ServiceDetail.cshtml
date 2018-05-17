@@ -2,13 +2,13 @@
 
 @{
     ViewBag.Title = "ServiceDetail";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+   // Layout = "~/Areas/ServiceProvider/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ServiceDetail</h2>
+<h2>Service Detail</h2>
 
 <div>
-    <h4>VServiceItem</h4>
+    
 	<hr />
     <dl class="dl-horizontal">
         <dt>
@@ -67,7 +67,7 @@
 </div>
 <p>
 
-    @Html.ActionLink("Back to List", "Index")
+  
     @Html.ActionLink("Appointments", "ListAppointments", "Appointment",new {id=Model.ID},null)
 
 </p>

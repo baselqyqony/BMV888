@@ -83,6 +83,10 @@ namespace Bee_Project.Areas.ServiceProvider.Controllers
         {
             return View();
         }
+
+        
+
+
         [HttpPost]
         public ActionResult GetCityByStaeId(int stateid)
         {

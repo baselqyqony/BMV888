@@ -17,14 +17,14 @@ namespace Bee_Project.Controllers
          [AllowAnonymous]
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "service locator service";
 
             return View();
         }
          [AllowAnonymous]
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "+36 999 999 999";
 
             return View();
         }

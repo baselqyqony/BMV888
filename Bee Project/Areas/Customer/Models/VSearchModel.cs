@@ -25,7 +25,9 @@ namespace Bee_Project.Areas.Customer.Models
         [DisplayName("Search")]
         [Required]
         public string metaDatas{set;get;}
+         [DisplayName("longitude")]
         public string longitude { set; get; }
+          [DisplayName("latitude")]
         public string altitude { set; get; }
         public bool isNearBy { set; get; }
        

@@ -112,8 +112,10 @@ namespace Bee_Project.Areas.Customer.Controllers
 
             Appointment APP = dbContext.Appointments.Where(x => x.ID == UA.AppointmentID).First();
            // get all service providers appointments
+
             List<int> serviceAPPIDS = dbContext.Appointments.Where(x => x.ServiceID == APP.ServiceID).ToList().Select(x => x.ID).ToList();
-            List<UserAppointment> thisUserAppointments = dbContext.UserAppointment.Where(x => serviceAPPIDS.Contains(x.ID) && DateTime.Compare(DateTime.Now, x.appointmentDate) <= 0 && x.UserID == userId).ToList();
+            
+            List<UserAppointment> thisUserAppointments = dbContext.UserAppointment.Where(x => serviceAPPIDS.Contains(x.AppointmentID) && DateTime.Compare(DateTime.Now, x.appointmentDate) <= 0 && x.UserID == userId).ToList();
        
             //get all user appointment to get sure that hshe has no other one at on the same service
             if(thisUserAppointments.Count>0)
@@ -124,6 +126,8 @@ namespace Bee_Project.Areas.Customer.Controllers
             else
             {
                 UA.UserID = userId;
+                dbContext.Entry(UA).State = EntityState.Modified;
+                dbContext.SaveChanges();
                 return RedirectToAction("ListUserAppointment");
             }
            
@@ -132,7 +136,7 @@ namespace Bee_Project.Areas.Customer.Controllers
         public ActionResult Cancel()
         {
             int userAppointmentID = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
-            UserAppointment UA = dbContext.UserAppointment.Where(x => x.AppointmentID == userAppointmentID).First();
+            UserAppointment UA = dbContext.UserAppointment.Where(x => x.ID == userAppointmentID).First();
             Appointment a = dbContext.Appointments.Where(x=>x.ID == UA.AppointmentID).First();
             Service s = dbContext.Services.Where(x => x.ID == a.ServiceID).First();
             userAppointmentLog UAL = new userAppointmentLog();
@@ -164,8 +168,8 @@ namespace Bee_Project.Areas.Customer.Controllers
 
 
                 Appointment a = dbContext.Appointments.Where(x => x.ID == UA.AppointmentID).First();
-                Service s = dbContext.Services.Where(x => x.ID == a.ServiceID).First();
-                VUA.AppointmentService = s;
+                Service service = dbContext.Services.Where(x => x.ID == a.ServiceID).First();
+                VUA.AppointmentService = service;
                 VUAppointments.Add(VUA);
             }
 
@@ -292,7 +296,7 @@ namespace Bee_Project.Areas.Customer.Controllers
                         GeoCoordinate userLocation = new GeoCoordinate(Double.Parse(VSM.altitude), Double.Parse(VSM.longitude));
                         Double Distance = serviceLocation.GetDistanceTo(userLocation);
                         allsearchResults[i].distance = Distance + "";
-                        if (Distance <= 50000)
+                        if (Distance <= 7000)
                         {
                             goalServices.Add(i);
                         }

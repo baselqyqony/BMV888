@@ -177,8 +177,8 @@ namespace Bee_Project.Areas.ServiceProvider.Controllers
 
                 DateTime startTime = App.StartTime;
                 DateTime endTime = App.EndTime;
-
-                for (var tm = startTime; tm <= endTime; tm.AddHours(App.Duration))
+                var tm = startTime;
+                while (TimeSpan.Compare(tm.TimeOfDay, endTime.TimeOfDay) <= 0)
                 {
                     UserAppointment UAPP = new UserAppointment();
                     UAPP.appointmentDate = dt;
@@ -189,10 +189,11 @@ namespace Bee_Project.Areas.ServiceProvider.Controllers
                     dbContext.UserAppointment.Add(UAPP);
                  
                     dbContext.SaveChanges();
+                    tm = tm.AddHours(App.Duration);
                 }
             } 
            
-            return Redirect(Url.Content("~/ServiceProvider/Appointments/ListAppointments/"+App.ServiceID));
+            return Redirect(Url.Content("~/ServiceProvider/Appointment/ListAppointments/"+App.ServiceID));
 
         }
        

@@ -1,19 +1,17 @@
 ﻿@model IEnumerable<Bee_Project.Areas.Customer.Models.VUserAppointment>
 
 @{
-    ViewBag.Title = "ListUserAppointment";
-    Layout = "~/Areas/ServiceProvider/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "User Appointments";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ListUserAppointment</h2>
+<h2>User Appointments</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
-            Name
+            Service Name
         </th>
         
         <th>
@@ -34,19 +32,22 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.AppointmentService.Name);
+            @Html.DisplayFor(modelItem => item.AppointmentService.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UAppointment.startTime);
+            @Html.DisplayFor(modelItem => item.UAppointment.startTime)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UAppointment.endTime);
+            @Html.DisplayFor(modelItem => item.UAppointment.endTime)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UAppointment.appointmentDate);
+            @Html.DisplayFor(modelItem => item.UAppointment.appointmentDate)
         </td>
         <td>
             @Html.ActionLink("Cancel", "Cancel", new { id = item.UAppointment.ID })
+        </td>
+        <td>
+            @Html.ActionLink("Details", "details", new { id = item.AppointmentService.ID })
         </td>
     </tr>
 }

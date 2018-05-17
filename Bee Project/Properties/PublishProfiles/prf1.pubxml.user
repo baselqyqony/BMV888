@@ -10,22 +10,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/Customer/Views/CustomerProfile/Profile.cshtml">
-      <publishTime>04/04/2018 15:14:28</publishTime>
+      <publishTime>05/16/2018 21:21:37</publishTime>
+    </File>
+    <File Include="Areas/Customer/Views/Search/BookAppointment.cshtml">
+      <publishTime>05/16/2018 23:47:40</publishTime>
     </File>
     <File Include="Areas/Customer/Views/Search/details.cshtml">
-      <publishTime>05/03/2018 15:28:40</publishTime>
+      <publishTime>05/16/2018 23:34:37</publishTime>
+    </File>
+    <File Include="Areas/Customer/Views/Search/ListUserAppointment.cshtml">
+      <publishTime>05/16/2018 23:55:59</publishTime>
     </File>
     <File Include="Areas/Customer/Views/Search/search.cshtml">
-      <publishTime>05/06/2018 00:38:21</publishTime>
+      <publishTime>05/16/2018 23:32:39</publishTime>
     </File>
     <File Include="Areas/Customer/Views/Search/ViewSearchResult.cshtml">
-      <publishTime>05/03/2018 13:50:46</publishTime>
+      <publishTime>05/16/2018 23:29:41</publishTime>
     </File>
     <File Include="Areas/Customer/Views/Shared/Addresses.cshtml">
-      <publishTime>04/04/2018 15:14:28</publishTime>
+      <publishTime>05/16/2018 21:18:39</publishTime>
     </File>
     <File Include="Areas/Customer/Views/Shared/_Layout.cshtml">
-      <publishTime>05/02/2018 08:40:49</publishTime>
+      <publishTime>05/17/2018 13:42:18</publishTime>
     </File>
     <File Include="Areas/Customer/Views/web.config">
       <publishTime>03/24/2018 16:43:53</publishTime>
@@ -37,37 +43,40 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/10/2018 09:23:45</publishTime>
     </File>
     <File Include="Areas/ServiceProvider/Views/Appointment/ListAppointments.cshtml">
-      <publishTime>05/10/2018 09:36:04</publishTime>
+      <publishTime>05/17/2018 10:33:17</publishTime>
     </File>
     <File Include="Areas/ServiceProvider/Views/Service/CreateService.cshtml">
-      <publishTime>04/22/2018 15:39:36</publishTime>
+      <publishTime>05/17/2018 10:45:55</publishTime>
     </File>
     <File Include="Areas/ServiceProvider/Views/Service/deleteService.cshtml">
-      <publishTime>04/04/2018 11:08:58</publishTime>
+      <publishTime>05/17/2018 11:42:48</publishTime>
     </File>
     <File Include="Areas/ServiceProvider/Views/Service/editService.cshtml">
-      <publishTime>04/22/2018 00:37:17</publishTime>
+      <publishTime>05/17/2018 11:42:48</publishTime>
     </File>
     <File Include="Areas/ServiceProvider/Views/Service/ListServices.cshtml">
-      <publishTime>05/10/2018 09:41:36</publishTime>
+      <publishTime>05/17/2018 11:42:48</publishTime>
     </File>
     <File Include="Areas/ServiceProvider/Views/Service/ServiceDetail.cshtml">
-      <publishTime>05/07/2018 00:57:36</publishTime>
+      <publishTime>05/17/2018 11:42:48</publishTime>
+    </File>
+    <File Include="Areas/ServiceProvider/Views/Service/serviceUserAppiointments.cshtml">
+      <publishTime>05/17/2018 11:42:08</publishTime>
     </File>
     <File Include="Areas/ServiceProvider/Views/ServiceProvider/Addresses.cshtml">
       <publishTime>04/04/2018 15:14:28</publishTime>
     </File>
     <File Include="Areas/ServiceProvider/Views/ServiceProvider/Profile.cshtml">
-      <publishTime>04/04/2018 15:14:28</publishTime>
+      <publishTime>05/17/2018 11:35:31</publishTime>
     </File>
     <File Include="Areas/ServiceProvider/Views/ServiceProvider/Service.cshtml">
       <publishTime>03/24/2018 16:43:53</publishTime>
     </File>
     <File Include="Areas/ServiceProvider/Views/ServiceProvider/ServiceDetails.cshtml">
-      <publishTime>03/24/2018 16:43:53</publishTime>
+      <publishTime>05/17/2018 11:29:53</publishTime>
     </File>
     <File Include="Areas/ServiceProvider/Views/Shared/_Layout.cshtml">
-      <publishTime>05/02/2018 08:40:49</publishTime>
+      <publishTime>05/17/2018 13:31:26</publishTime>
     </File>
     <File Include="Areas/ServiceProvider/Views/web.config">
       <publishTime>03/24/2018 16:43:53</publishTime>
@@ -79,7 +88,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/24/2018 16:43:54</publishTime>
     </File>
     <File Include="bin/Bee Project.dll">
-      <publishTime>05/11/2018 09:43:31</publishTime>
+      <publishTime>05/17/2018 13:44:57</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>04/04/2018 15:14:29</publishTime>
@@ -175,10 +184,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/24/2018 16:43:53</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>04/12/2018 17:29:00</publishTime>
+      <publishTime>05/11/2018 10:50:48</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>03/24/2018 16:43:53</publishTime>
+      <publishTime>05/16/2018 16:44:03</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
       <publishTime>03/24/2018 16:43:53</publishTime>
@@ -226,7 +235,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/24/2018 16:43:53</publishTime>
     </File>
     <File Include="Scripts/mapsGUI.js">
-      <publishTime>05/08/2018 23:37:46</publishTime>
+      <publishTime>05/11/2018 13:34:42</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.6.2.js">
       <publishTime>03/24/2018 16:43:53</publishTime>
@@ -283,10 +292,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/04/2018 15:14:28</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>03/24/2018 16:43:53</publishTime>
+      <publishTime>05/16/2018 21:50:53</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>03/24/2018 16:43:53</publishTime>
+      <publishTime>05/16/2018 22:24:51</publishTime>
     </File>
     <File Include="Views/Home/Customermainview.cshtml">
       <publishTime>03/24/2018 16:43:53</publishTime>

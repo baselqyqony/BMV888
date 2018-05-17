@@ -183,6 +183,7 @@
     <Compile Include="Areas\ServiceProvider\Controllers\AppointmentController.cs" />
     <Compile Include="Areas\ServiceProvider\Controllers\ServiceController.cs" />
     <Compile Include="Areas\ServiceProvider\Controllers\ServiceProviderController.cs" />
+    <Compile Include="Areas\ServiceProvider\Models\ServiceAppointmentItem.cs" />
     <Compile Include="Areas\ServiceProvider\Models\VModel\AddressesVM.cs" />
     <Compile Include="Areas\ServiceProvider\Models\VModel\UserVM.cs" />
     <Compile Include="Areas\ServiceProvider\Models\VModel\VAppointment.cs" />
@@ -252,6 +253,10 @@
     <Compile Include="Migrations\201805140113054_adduserappointmentlog.Designer.cs">
       <DependentUpon>201805140113054_adduserappointmentlog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805160007347_lastMigration.cs" />
+    <Compile Include="Migrations\201805160007347_lastMigration.Designer.cs">
+      <DependentUpon>201805160007347_lastMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresse.cs" />
@@ -310,6 +315,7 @@
     <Content Include="Areas\ServiceProvider\Views\Appointment\EditAppointment.cshtml" />
     <Content Include="Areas\Customer\Views\Search\BookAppointment.cshtml" />
     <Content Include="Areas\Customer\Views\Search\ListUserAppointment.cshtml" />
+    <Content Include="Areas\ServiceProvider\Views\Service\serviceUserAppiointments.cshtml" />
     <None Include="Properties\PublishProfiles\prf1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -422,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805140113054_adduserappointmentlog.resx">
       <DependentUpon>201805140113054_adduserappointmentlog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805160007347_lastMigration.resx">
+      <DependentUpon>201805160007347_lastMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

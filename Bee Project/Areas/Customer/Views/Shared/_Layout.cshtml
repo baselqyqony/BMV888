@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      
-    <title>@ViewBag.Title - Bee Service</title>
+    <title>Result - Bee Service</title>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBEeTyHe5sP7At3JksRZjp4BDvCnKFC2Y&callback=initMap"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -19,13 +19,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Bee Service", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("UserProfile", "profile", "ServiceProvider")</li>
-                    <li>@Html.ActionLink("CompanyProfile", "About", "Home")</li>
-                    <li>@Html.ActionLink("Services", "ListServices", "Service")</li>
+                    <li>@Html.ActionLink("UserProfile", "profile", "CustomerProfile")</li>
+                    <li>@Html.ActionLink("Search", "search", "Search")</li>
+                    <li>@Html.ActionLink("my Appointments", "ListUserAppointment", "Search")</li>
+                    
 
                 </ul>
             </div>

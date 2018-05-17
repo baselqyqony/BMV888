@@ -4,7 +4,7 @@
 
 @{
     ViewBag.Title = "CreateService";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/ServiceProvider/Views/Shared/_Layout.cshtml";
 }
 
 <h2>CreateService</h2>
@@ -149,9 +149,9 @@
 <div id="map"></div>
 
 <script src="~/Scripts/staticLocation.js"></script>
-<script> setLocation('altitude', 'longitude') </script>
 
 <script src="~/Scripts/mapsGUI.js"></script>
 <script type="text/javascript">startMapPlugin('altitude', 'longitude', true)</script>
+<script type="text/javascript"> initMap()</script>
 
  

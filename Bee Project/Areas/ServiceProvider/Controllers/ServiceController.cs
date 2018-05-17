@@ -7,6 +7,11 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using System.Data.Entity;
+using Bee_Project.Areas.ServiceProvider.Models;
+using System.Web.Security;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 
 namespace Bee_Project.Areas.ServiceProvider.Controllers
 {
@@ -44,6 +49,33 @@ namespace Bee_Project.Areas.ServiceProvider.Controllers
 
             return View(vServices); 
         }
+
+
+        public ActionResult serviceUserAppiointments() {
+            int ServiceID = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
+           // int ServiceID = dbContext.Appointments.Where(x => x.ID == APPID).First().ServiceID;
+            List<int> serviceAppointments = dbContext.Appointments.Where(x => x.ServiceID == ServiceID).ToList().Select(y=>y.ID).ToList();
+            List<UserAppointment> thisServiceUserAppointments = dbContext.UserAppointment.Where(x => x.UserID!=null && serviceAppointments.Contains(x.AppointmentID)).ToList();
+            thisServiceUserAppointments = thisServiceUserAppointments.OrderBy(x => x.appointmentDate).ThenBy(x => x.startTime).ToList();
+            List<ServiceAppointmentItem> apps = new List<ServiceAppointmentItem>();
+            var UserManager=HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            foreach (UserAppointment uA in thisServiceUserAppointments)
+            {
+                ServiceAppointmentItem SAI = new ServiceAppointmentItem();
+                SAI.date = uA.appointmentDate;
+                SAI.UAppointment = uA;
+                SAI.user = dbContext.Customers.Where(x => x.UserID == uA.UserID).First();
+                var user =  UserManager.FindById(uA.UserID);
+                SAI.name = user.UserName;
+                SAI.phone = SAI.user.PhoneNumber;
+                SAI.email = user.Email;
+                apps.Add(SAI);
+
+            }
+            return View(apps);
+        }
+
+
         [HttpPost]
 
         public ActionResult CreateService(VService vservice)

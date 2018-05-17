@@ -18,20 +18,23 @@ namespace Bee_Project.Models
         [Display(Name="City")]
         [Required]
         public int CityID { get; set; }
-    
 
+        [Display(Name = "District")]
         public string Ditricit { get; set; }
-
+        
         public string Street { get; set; }
 
         public string Building { get; set; }
 
+        [Display(Name = "Floor Number")]
         public int Floornumber { get; set; }
-
+        [Display(Name = "Door Number")]
         public int DoorNumber { get; set; }
-
+        [Display(Name = "Postal Code")]
         public string PotalCode { get; set; }
+        [Display(Name = "longtude")]
         public string longitude { get; set; }
+        [Display(Name = "altitude")]
         public string ultitude { get; set; }
     }
 }

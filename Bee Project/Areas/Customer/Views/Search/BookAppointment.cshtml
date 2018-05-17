@@ -1,15 +1,12 @@
 ﻿@model IEnumerable<Bee_Project.Areas.Customer.Models.VAppointmentItem>
 
 @{
-    ViewBag.Title = "BookAppointment";
-    Layout = "~/Areas/ServiceProvider/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Book Appointment";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
 }
 
-<h2>BookAppointment</h2>
+<h2>Book Appointment</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -19,7 +16,7 @@
             Date
         </th>
         <th>
-            Ava
+            Available Times
         </th>
     </tr>
 
@@ -33,7 +30,7 @@
         </td>
         <td>
             @foreach (var app in item.appointments) { 
-            @Html.ActionLink(app.startTime.ToString("HH:mm") + " - " + app.endTime.ToString("HH:mm"), "BookUserAppointment", new { id = app.ID }) 
+            @Html.ActionLink(app.startTime.ToString("HH:mm") + " - " + app.endTime.ToString("HH:mm") +" | " , "BookUserAppointment", new { id = app.ID }) 
             }
       
         </td>

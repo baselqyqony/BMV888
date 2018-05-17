@@ -8,6 +8,7 @@ namespace Bee_Project.Models
 {
     public class userAppointmentLog
     {
+        public int ID { set; get; }
         public int ServiceID { get; set; }
         public string userID { get; set; }
         public Boolean canceled { get; set; }
